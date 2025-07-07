@@ -1,0 +1,96 @@
+Q) Normalization
+
+Reduce redundancy and improve data integrity 
+
+1NF
+2NF
+3NF
+BCNF
+
+Q) ACID Properties 
+
+ATOMICITY : All operations should be executed or none of them should be executed that is there should be a rollback mechanism 
+
+CONSISTENCY : Whenever we r reading any value from the DB it should be up to date writing any value to the DB 
+              we should always follow the integrity rule.
+
+INTEGRITY : When two tranisition is occur it should be isolated with other.
+
+DURABILITY : Commited changes are saved in a DB even there is a system crash or any faliure.
+
+Q) Order by Vs Group by
+
+Order by : Order by arrage your data or sort your data in ascending or descending order 
+Group by : Aggregate or Group same values in one or more coloumns
+
+Q) Aggregate Function :
+   Perform calculation on set of values
+
+   MIN(),MAX(),COUNT(),AVG(),SUM().
+
+Q) JOINS :
+A JOIN is used to combine rows from two or more tables based on a related column (usually a foreign key).  
+
+ INNER JOIN :
+ SELECT * FROM Employees
+ INNER JOIN Departments ON Employees.dept_id = Departments.id;
+
+LEFT JOIN :
+SELECT * FROM Employees
+LEFT JOIN Departments ON Employees.dept_id = Departments.id;
+
+RIGHT JOIN :
+SELECT * FROM Employees
+RIGHT JOIN Departments ON Employees.dept_id = Departments.id;
+
+ FULL JOIN :
+SELECT * FROM Employees
+FULL OUTER JOIN Departments ON Employees.dept_id = Departments.id;
+
+
+CROSS JOIN :
+SELECT * FROM Products
+CROSS JOIN Categories;
+
+ Combine all possible pairs (rarely used in real-world apps).
+
+Q) SUBSTRING()
+SELECT SUBSTRING('HelloWorld', 1, 5);  -- Output: 'Hello'
+
+TIME()
+✅ In MySQL: Extracts time part from a datetime
+SELECT TIME('2024-05-24 14:35:00');  -- Output: '14:35:00'
+
+SELECT CURRENT_TIME();   -- Output: e.g., '15:42:10'
+
+UPPER() :
+SELECT UPPER('chatgpt');  -- Output: 'CHATGPT'
+
+) LIMIT 
+LIMIT controls how many rows you get.
+Used to restrict the number of rows returned by a query.
+
+ SELECT * FROM Employees
+ LIMIT 5;
+
+OFFSET
+OFFSET controls where to start from.
+Used to skip a specific number of rows before starting to return results.
+
+ SELECT * FROM Employees
+ LIMIT 5 OFFSET 10;
+
+ This skips the first 10 rows, then returns next 5 rows (i.e., rows 11 to 15).
+
+) B B+ and AVL Tree
+  
+  B : Balanced multi way searched tree 
+      A nodes have more than 2 childrens 
+      it maintains its balance by ensuring that all the level 
+      of leafe nodes are at the same level making searching,insertion,deletion more efficient.
+  
+  B+ : Its a varient of B tree only All the data pointers are strored at the leaf Nodes
+       for faster serching and indexing.
+  
+  AVL Tree : A self balance binary search tree always maintain -1,0,1 height of 
+             left and right subtree.

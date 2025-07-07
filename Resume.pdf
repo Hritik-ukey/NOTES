@@ -1,0 +1,463 @@
+Frontend:
+HTML, CSS, React.js, Tailwind, Next.js, TypeScript – You can build responsive websites and user interfaces using these
+technologies.
+
+Backend:
+Node.js, Express.js – You can create server-side APIs and backend logic.
+
+Databases:
+MongoDB, MySQL, SQL – You can store, retrieve, and manage data in both NoSQL and SQL databases.
+
+Tools & Platforms:
+Git, GitHub – For version control.
+
+Linux – Basic terminal and OS knowledge.
+
+REST APIs, Firebase, Google Cloud – You’ve used APIs, hosted data, and worked on cloud tools.
+
+🧪 Projects
+🔹 Blog Website & Mentor Dashboard (AI-powered)
+You created a full-stack blogging platform where users can write AI-generated blogs.
+
+Users can sign up, post blogs (CRUD), and book mentors.
+
+You also mentored junior developers.
+
+🔹 E-Commerce Website
+You designed an online store UI with product listing and payment integration (Razorpay, GPay, etc.)
+
+🔹 Password Manager
+Built a secure tool to store passwords where users can add/edit/delete saved data.
+
+🔹 Portfolio Website
+A personal website to showcase your skills, projects, and resume to recruiters.
+
+
+
+💼 Experience
+Web Developer Intern – UptoSkills
+I Worked as a MERN STACK DEVELOPER on real-life projects,
+E.g, BlogWebsite & MentorDashboard guided by seniors, and improved my technical skills.
+ 
+
+🧾 Certifications
+Accenture Virtual Internship: Learned about tech consultancy roles.
+
+GeeksForGeeks MongoDB: Completed a course that validated your knowledge in MongoDB.
+
+📈 Summary (what you can say in interview)
+“I’m a final-year CS student passionate about full-stack development. 
+I’ve built multiple projects like an AI blog platform, an e-commerce site, and a password manager. 
+I’ve interned at startups and completed industry certifications.
+My goal is to build scalable applications and contribute to tech teams.”
+
+-----------------------------------------------------------------------------------------------------------------------
+✅ 1. “Hi, I’m Hritik Ukey, a final-year B.Tech student in Computer Science from Technocrats Institute of Technology, Bhopal.
+I specialize in full-stack web development with hands-on experience in technologies like React.js, Node.js, Express.js, MongoDB, and Tailwind CSS.
+Over the last year, I’ve built multiple real-world projects including an AI-powered blog website with mentor booking features, an e-commerce platform with integrated payment systems, and a secure password manager.
+I’ve also interned as a Web Developer at UptoSkills where I worked on real projects and mentored juniors.
+I’m passionate about solving real-world problems through code, and I’m now looking forward to applying my skills in a dynamic team where I can grow as a developer.”
+
+
+✅ 2. "Explain Your Blog Website & Mentor Dashboard Project"
+“It’s a full-stack blogging platform built with the MERN stack—MongoDB, Express, React, and Node.js.
+The unique part is the AI feature that generates blog content automatically. Users can sign up, write, edit, or delete blogs, and even book mentors through the dashboard.
+I also built a Mentor Dashboard, where mentors can register, manage their availability, and get booked by students.
+This project taught me API design, user authentication, and deployment, and I also mentored junior interns while building this.”
+
+✅ 3. "Explain Your E-Commerce Project"
+“I built an e-commerce website using React.js, Tailwind CSS, and JavaScript.
+It features product listings, a shopping cart, and checkout flow.
+I integrated multiple payment options like Razorpay, Google Pay, and PhonePe.
+The main goal was to build a user-friendly shopping experience and handle state management on the frontend.”
+
+✅ 4. "What did you do in the Password Manager project?"
+“It’s a secure password manager that allows users to add, view, update, and delete stored credentials.
+The main focus was on security and user experience.
+It helped me understand how to handle sensitive data and create simple CRUD applications with proper data flow.”
+
+✅ 5. "What did you learn from your internships?"
+UptoSkills (Web Developer):
+“I worked on real projects using React and Node, and participated in peer code reviews.
+I also got to mentor other interns which improved my communication and leadership skills.”
+
+Indigo (Customer Service):
+“This taught me how to deal with customers, handle pressure, and communicate clearly—skills that are important in tech teams too.”
+
+ASHORT (Sales):
+“It helped me understand business workflows and how tech supports sales and customer acquisition.”
+
+✅ 6. "What are your strengths?"
+Fast learner and adaptable to new tech
+
+Strong understanding of full-stack development
+
+Good communication and mentoring skills
+
+Team player with a problem-solving mindset
+
+✅ 7. "What are your weaknesses?" (Smart answer)
+“Sometimes I focus too much on perfecting the UI, which affects delivery time. 
+But I’ve learned to balance quality with deadlines by using component libraries and prioritizing features.”
+
+✅ 8. "Why should we hire you?"
+“Because I bring a mix of technical skill, real project experience, and the attitude to learn and contribute quickly.
+I’ve worked in both development and customer-facing roles, so I can build user-friendly apps while understanding business needs.”
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+%-------------------------
+% Resume in Latex
+% Author : Abey George
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+
+\documentclass[letterpaper,11pt]{article}
+
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\usepackage{graphicx}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+
+\RequirePackage{tikz}
+\RequirePackage{xcolor}
+\RequirePackage{fontawesome}
+\usepackage{tikz}
+\usetikzlibrary{svg.path}
+
+
+
+
+\definecolor{cvblue}{HTML}{0E5484}
+\definecolor{black}{HTML}{130810}
+\definecolor{darkcolor}{HTML}{0F4539}
+\definecolor{cvgreen}{HTML}{3BD80D}
+\definecolor{taggreen}{HTML}{00E278}
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+\colorlet{name}{black}
+\colorlet{tagline}{darkcolor}
+\colorlet{heading}{darkcolor}
+\colorlet{headingrule}{cvblue}
+\colorlet{accent}{darkcolor}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+
+
+
+
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+
+
+% \pagestyle{fancy}
+% \fancyhf{}  % clear all header and footer fields
+% \fancyfoot{}
+% \renewcommand{\headrulewidth}{0pt}
+% \renewcommand{\footrulewidth}{0pt}
+
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+
+\urlstyle{same}
+
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{\large#1} & \textbf{\small #2} \\
+      \textit{\large#3} & \textit{\small #4} \\
+     
+    \end{tabular*}\vspace{-7pt}
+}
+
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+
+
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+
+
+
+\newcommand\sbullet[1][.5]{\mathbin{\vcenter{\hbox{\scalebox{#1}{$\bullet$}}}}}
+
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\begin{document}
+
+
+%----------HEADING----------
+
+
+
+
+\begin{center}
+    {\Huge \scshape HRITIK UKEY} \\ \vspace{1pt}
+     \\ \vspace{1pt}
+    \small \href{tel:+xxxxxxxxxxxx}{ \raisebox{-0.1\height}\faPhone\ \underline{+91-9009342156} ~} \href{mailto:yourname@gmail.com}{\raisebox{-0.2\height}\faEnvelope\  \underline{hritikukey840@gmail.com}} ~
+    \href{https://www.linkedin.com/in/hritik-ukey-701a36229/}{\raisebox{-0.2\height}\faLinkedinSquare\ \underline{Linkedln}}  ~
+    \href{https://github.com/Hritik-ukey}{\raisebox{-0.2\height}\faGithub\ \underline{GitHub}} ~
+    \href{https://leetcode.com/studyplan/top-interview-150/}{\raisebox{-0.2\height}\faHackerrank\ \underline{LeetCode}} ~
+    % \href{https://codeforces.com/profile/yourid}{\raisebox{-0.2\height}\faPoll\ \underline{yourid}}
+    % \vspace{-8pt}
+\end{center}
+
+
+
+
+%-----------EDUCATION-----------
+\section{EDUCATION}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {RGPV UNIVERSITY}{07 2021 -- 07 2025}
+      {B.Tech - \textbf{CGPA} - \textbf{8+}}{Bhopal, India}
+  \resumeSubHeadingListEnd
+ 
+  % \resumeSubHeadingListStart
+  %   \resumeSubheading
+  %     {College Name}{MM YYYY -- MM YYYY}
+  %     {Exam Name - Course Name  - \textbf{Percentage} - \textbf{xx\%}}{city, country}
+  % \resumeSubHeadingListEnd
+
+
+%------RELEVANT COURSEWORK-------
+\section{COURSEWORK / SKILLS}
+    %\resumeSubHeadingListStart
+        \begin{multicols}{4}
+            \begin{itemize}[itemsep=-2pt, parsep=5pt]
+                \item Data Structures \& Algorithms
+                \item SQL
+                \item Database Management System (DBMS)
+               \item Artificial Intelligence
+                \item OOPS Concept
+                \item Web Development
+            \end{itemize}
+        \end{multicols}
+        \vspace*{2.0\multicolsep}
+    %\resumeSubHeadingListEnd
+
+
+%-----------PROGRAMMING SKILLS-----------
+\section{TECHNICAL SKILLS}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{\normalsize{Languages:}}{ \normalsize{Python, Java, C, C++, Dart, JavaScript, SQL, NoSQL}} \\
+     \textbf{\normalsize{Developer Tools:}}{ \normalsize{VS Code, Android Studio, DataGrip, Goland, Intellij Idea Ultimate}} \\
+     \textbf{\normalsize{Technologies/Frameworks:}}{\normalsize{ Linux, GitHub, ReactJS, Redux, NextJS, NodeJS, ExpressJS, Git, MongoDB}} \\
+    }}
+ \end{itemize}
+ \vspace{-15pt}
+
+
+
+
+%-----------PROJECTS-----------
+\section{PROJECTS}
+    \vspace{-5pt}
+    \resumeSubHeadingListStart
+       \resumeProjectHeading
+          {\href{ProjectLink.com}{\textbf{\large{\underline{Ecommerce}}} {\raisebox{-0.1\height}\faExternalLink }} $|$ \large{\underline{ReactJs,NodeJs,HTML,CSS,Javascript}}}{}
+         \resumeItemListStart
+         \resumeItem{\normalsize{Designed an intuitive online store UI featuring seamless product listing and integrated payment solutions using Razorpay, Google Pay, and other platforms.}}
+
+
+            \resumeItem{\textcolor{accent} {\href{xxx} {\underline{\normalsize{\href{https://github.com/Hritik-ukey/My-Ecommerce-Website-Store/archive/refs/heads/main.zip}{Download}}}}}}
+          \resumeItemListEnd
+          \vspace{-13pt}
+         
+      \resumeProjectHeading
+          {\href{ProjectLink.com}{\textbf{\large{\underline{Password Manager}}} \href{Project Link}{\raisebox{-0.1\height}\faExternalLink }} $|$ \large{\underline{ReactJs,NodeJs,HTML,CSS,Javascript}}}{}
+          \resumeItemListStart
+            \resumeItem{\normalsize{Built a secure tool to store passwords where users can add/edit/delete saved data.
+            }.}
+            \resumeItem{\textcolor{accent} {\href{https://github.com/Hritik-ukey/password-manager/archive/refs/heads/main.zip
+} {\underline{\normalsize{Download}}}}}
+          \resumeItemListEnd
+          \vspace{-13pt}
+         
+          \resumeProjectHeading
+          
+           
+          \resumeItemListEnd
+         
+    \resumeSubHeadingListEnd
+\vspace{-12pt}
+
+
+%
+
+
+
+
+%-----------EXPERIENCE-----------
+\section{INTERNSHIP EXPERIENCE}
+  \resumeSubHeadingListStart
+
+
+    \resumeSubheading
+      {UPTOSKIILS \href{certificate Link}{\raisebox{-0.1\height}\faExternalLink }}{10 2024 -- 01 2025}
+      {\underline{Role Developer}}{Banglore, India}
+      \resumeItemListStart
+        \resumeItem{\normalsize{I Worked as a \textbf{MERN STACK DEVELOPER } and Worked on  real-life projects, E.g, BlogWebsite \& MentorDashboard guided by seniors, and improved my technical skills.}}
+        
+      \resumeItemListEnd  
+       \resumeProjectHeading
+          {\href{https://github.com/bhanu0705/blogweb}{\textbf{\large{\underline{BlogWebsite}}} \href{Project Link}{\raisebox{-0.1\height}\faExternalLink }} $|$ \large{\underline{MongoDB, Express, React, and Node.js,Html,Css,Javascript}}}{}
+          \resumeItemListStart
+            \resumeItem{\normalsize{The unique part is the AI feature that generates blog content automatically.} }}
+
+             \resumeItemListEnd  
+       \resumeProjectHeading
+          {\href{ProjectLink.com}{\textbf{\large{\underline{Mentor DashBoard}}} \href{Project Link}{\raisebox{-0.1\height}\faExternalLink }} $|$ \large{\underline{MongoDB, Express, React, and Node.js,Html,Css,Javascript}}}{}
+          \resumeItemListStart
+            \resumeItem{\normalsize{I also built a Mentor Dashboard, where mentors can register, manage their availability, and get booked by students.} }
+
+            
+  \resumeSubHeadingListEnd
+\vspace{-0pt}
+
+%-----------INVOLVEMENT---------------
+\section{PORTFOLIYO}
+    \resumeSubHeadingListStart
+        \resumeSubheading{WEBSITE \href{https://hritikukportfoliyo.netlify.app/}{\raisebox{-0.1\height}\faExternalLink } } {}{\underline{}}{}
+            \resumeItemListStart
+                \resumeItem{\normalsize{A personal website to showcase my skills, projects, and Experience to recruiters.}}
+        
+            \resumeItemListEnd
+    \resumeSubHeadingListEnd
+ \vspace{-11pt}
+ 
+ %-----------CERTIFICATIONS---------------
+\section{CERTIFICATIONS}
+
+\begin{tabularx}{\textwidth}{X X}
+  \sbullet[.75]~%
+  \href{https://media.geeksforgeeks.org/courses/certificates/c60f004deb0497b2d065300f7b8b4983.pdf}%
+  {\textbf{MongoDB}~\raisebox{-0.1\height}{\hspace{2pt}\faExternalLink}} 
+  &
+  \sbullet[.75]~%
+  \href{https://www.linkedin.com/feed/urn:li:activity:7233377052370886656/}%
+  {\textbf{Accenture}~\raisebox{-0.1\height}{\hspace{2pt}\faExternalLink}} \\
+  \textbf{} & \textbf{} \\
+\end{tabularx}
+
+
+
+
+\end{document}
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------

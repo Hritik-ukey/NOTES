@@ -1,0 +1,451 @@
+Q. What is SQL
+=> SQL (Structured Query Language) is a standard language used to store, retrieve, and manipulate data in relational databases.
+ It allows end-users to communicate with databases and perform tasks like creating, updating, and deleting databases.
+
+ Types of SQL
+
+ DDL (Data defination language) :  used to define the structure of the database . CAD (create, alter,Drop).
+ DML (Data Manupulation language) : organizing and arranging data in a specific order to make it easier to interupt SIDU (Select,insert,update,delete)
+ DCL (Data Control language) : used to retrive and edit data and ensures the security of the data (Grant & revoke)
+ TCL (Transition control language) : Deals with the Transition in database. (Commit , rollback, savepoint)
+
+    Data Types : 
+    int -> whole no. both pos & neg
+    float -> decimal values only
+    char -> fixed length characters only
+    varchar -> numbers + characters + special characters => H@-man , Gree@123
+    boolean -> true & false only
+    Date -> date values
+
+ Check => Controls the value being inserted into the column in a table
+ F.K. => Maintains parent child relationship between tables 
+         Child takes references from parent tables column 
+ SQL : Query language database. Access , manage and maintain database.
+ MYSQL : Open source data product . its RDBMS keeps the users data in organized way.
+
+ Q. Grant & Revoke 
+
+ Grant Provide Access... 
+ Grant previleges on object/tablename To user;
+
+ E.g, Select * from climate
+ Grant Select,insert,update,delete on climate To Asif.
+
+ Revoke Get back the priviliges
+
+Revoke priviliges on object/tablename From user;
+
+E.g, 
+Select * from climate
+Revoke delete on climate from Asif;
+
+
+Q. Second Maxi
+    select max(salary) from emp
+    where salary < (max(salary) from emp)
+
+Q. Max salary in a Group
+Select max(salary), c_name from emp
+Group by c_name;
+
+Q. MAx salary > 80000
+
+Select max(salary) c_name from emp;
+group by c_name;
+having max(salary) > 80,000
+
+
+Q.  total number of employees in the employees table.
+    select count(*) from employees
+
+Q.  List unique job titles from the employees table.
+    select DISTINCT job_title FROM employees;
+
+    For unique data always use DISTINCT.
+
+Q. List employees who have salary greater than the average salary.
+    SELECT * FROM employees 
+    WHERE salary > (SELECT AVG(salary) FROM employees);
+
+Q. Get the number of employees in each department.
+   SELECT department_id, COUNT(*) 
+   FROM employees 
+   GROUP BY department_id;
+
+Q. Get the employee names along with their department names.
+(Assume there is a departments table with id and name)
+
+SELECT e.name, d.name AS department 
+FROM employees e 
+JOIN departments d ON e.department_id = d.id;
+
+Q. Find departments having more than 5 employees.
+
+SELECT department_id, COUNT(*) AS employee_count 
+FROM employees 
+GROUP BY department_id 
+HAVING COUNT(*) > 5;
+
+Q. Get top 3 highest salaries from employees.
+
+SELECT DISTINCT salary 
+FROM employees 
+ORDER BY salary DESC 
+LIMIT 3;
+
+Q. 
+    Advanced SQL Query Questions
+   Find employees who do not have any manager.
+  (Assuming manager_id is NULL if no manager)
+
+    SELECT * FROM employees 
+    WHERE manager_id IS NULL;
+
+Q. List employees who joined in the last 6 months.
+
+   SELECT * FROM employees 
+   WHERE joining_date >= CURRENT_DATE - INTERVAL '6 months';
+
+Q. Display the department name along with total salary paid in that department.
+
+   SELECT d.name, SUM(e.salary) AS total_salary 
+   FROM employees e 
+   JOIN departments d ON e.department_id = d.id 
+   GROUP BY d.name;
+
+Q. Find the names of employees who share the same salary.
+
+   SELECT name, salary 
+   FROM employees 
+   WHERE salary IN (
+   SELECT salary 
+   FROM employees 
+   GROUP BY salary 
+   HAVING COUNT(*) > 1
+   );
+
+Q. Write a query to find the 3rd highest salary using ROW_NUMBER().
+
+SELECT name, salary FROM (
+  SELECT name, salary, ROW_NUMBER() OVER (ORDER BY salary DESC) AS rn 
+  FROM employees
+) t 
+WHERE rn = 3;
+
+Q .     JOINS in SQL 
+
+     INNER JOIN : common between both 
+        
+          SELECT coloumns
+          FROM table1
+          INNER JOIN table2
+          ON table1.column = table2.coloumn;
+
+     LEFT JOIN : 
+     RIGHT JOIN :
+     FULL JOIN :
+
+     in place of INNER JOIN;
+
+     SELF JOIN :
+
+     SELECT A.name AS Employee, B.name AS Manager
+     FROM employees A
+     JOIN employees B
+     ON A.manager_id = B.id;
+
+Q.  CROSS JOIN
+    Cartesian product return karta hai — har row table1 se multiply ho jati hai har row table2 se.
+
+    SELECT *
+    FROM table1
+    CROSS JOIN table2;
+
+Q. Relational Database -> Oracle    Non - Relational Databases -> MongoDb
+       Table form                            Key value Pair
+
+Q. varchar flexible takes lengths which is required 
+   char - > fixed length to be assigned
+
+SHOW databases;
+
+Create database Mydatabase
+Create database if not exists Mydatabase
+
+select database()
+USE Mydatabase
+
+
+CRUD -> Create , read , update , delete
+VARCHAR -> string values contain 
+
+1. CREATE TABLE employee(
+    firstname varchar(20),
+    lastname  varchar(20),
+    age int NOT NULL,
+    salary int,
+    location varchar(20)
+)
+
+ DESC employee
+
+SHOW tables -> this will shows how many tables you have 
+
+
+INSERT INTO employee VALUES ("RAM","yogi",26,26000,"Hydrabad")
+
+
+
+INSERT INTO employee VALUES ("shyam","joghi",57,6000,"bangloree")
+
+INSERT INTO employee VALUES ("ghanshyam","yogi",26,26000,"Hydrabad")
+
+INSERT INTO employee VALUES ("jgnesh","iyer",47,56000,"sukhi")
+
+INSERT INTO employee VALUES ("jethalal","gada",27,86000,"jammu")
+
+
+OR 
+
+INSERT INTO employee (first_name, last_name, age, salary, city) VALUES
+  ('shyam', 'joghi', 57, 6000, 'bangloree'),
+  ('ghanshyam', 'yogi', 26, 26000, 'Hydrabad'),
+  ('jgnesh', 'iyer', 47, 56000, 'sukhi'),
+  ('jethalal', 'gada', 27, 86000, 'jammu');
+
+
+SKIP PARTICULAR COLUMN
+INSERT INTO employee(lastname,Age,salary,location)
+VALUES ("joghi",57,6000,"banglore")
+
+SELECT * FROM employee
+
+
+
+DROP TABLE employee
+SHOW tables
+
+
+2. 1. CREATE TABLE employee(
+    Empid int AUTO_INCREMENT PRIMARY KEY,
+    firstname varchar(20),
+    lastname  varchar(20),
+    age int NOT NULL,
+    salary int,
+    location varchar(20)
+)
+
+
+INSERT INTO employee VALUES ("RAM","yogi",26,26000,"Hydrabad")
+
+
+
+INSERT INTO employee VALUES ("shyam","joghi",57,6000,"banglore")
+
+INSERT INTO employee VALUES ("ghanshyam","yogi",26,26000,"Hydrabad")
+
+INSERT INTO employee VALUES ("jgnesh","iyer",47,56000,"sukhi")
+
+INSERT INTO employee VALUES ("jethalal","gada",27,86000,"jammu")
+
+
+Auto matically SR.NO generate karne lagega
+
+READ Example :
+               select firstname,lastname from employee
+UPDATE : select firstname,lastname 
+         from employee
+         order by desc
+         where salary > 6000
+
+DELETE : delete firstname from employee
+
+
+
+UPDATE : 
+         UPDATE employee SET lastname = "UDAY"
+         where salary = 86000
+
+or EMPID = 2 coz unique
+
+ALTER TABLE employee MODIFY lastname varchar(50)
+
+Select Count(*) from employee
+
+//Total number of employee = 5 
+
+
+Select Count(*) AS Total_EMP from employee
+
+Total_EMP
+    5
+
+SELECT MAX(Salary) FROM employee
+
+
+
+1.Calculate total revenue quantity * price 
+   then sum of it and make calculation round 
+   of 3 decimal places
+
+select 
+order_details.quantity * pizzas.price
+from order_details join pizzas
+on pizzas.pizza_id = order_details.pizza_id
+
+
+
+select 
+round(sum(order_details.quantity * pizzas.price),2) AS total_sales
+from order_details join pizzas
+on pizzas.pizza_id = order_details.pizza_id
+
+2.Higest priced pizzas
+
+select pizza_types.name,pizzas.price
+from pizza_types join pizzas
+on  pizza_types.pizza_type_-id = pizzas.pizza_type_id
+
+order by pizas.price desc limit 1
+
+3. most common pizzas ordered
+
+select quantity, count(ordered_details_id)
+from ordered details group by quantity;
+
+Aggregate kiss group by
+
+4.most common pizza size
+
+select pizzas.size,count(order_details.order_details-id) as order_count
+from pizzas join order_details
+on pizzas.pizza_id = order_details.pizza_id
+group by pizzas.size order by order_count desc;
+
+5. top 5 most ordered pizza types along with their quantities 
+
+
+
+
+select 
+    pizza_types.name sum(order_details.quantity) as quantity
+from pizza_types
+join pizzzas on pizza_types.pizza_type_id = pizzas.pizza_type_id
+join order_Details on order_details.pizza_id = pizzas.pizza_id
+group by pizza_types.name
+order by quantity desc
+limit 5;
+
+
+6. Join the necessary tables to find the total quantity of each pizza category ordered
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Q. Union and Union All 
+Both commands used to combine the result of two or more Select Statements
+
+Union : remove duplicate records
+Union All : Includes all Duplicates
+
+Q. cursor : holds multiple rows returns by a SQL statements
+
+Q) Highest salary
+
+   Select salary from emp 
+   order by salary DESC 
+   Limit 1 offset 0;
+
+   Second highest Limit 1 offset 1
+   Third Highest  Limit 1 offset 2
+
+Q) Top Two Employees from the table based on their salary
+
+Select* From Employees
+Order by salary DESC 
+LIMIT 2
+
+Q) Delete Drop Truncate
+
+DELETE : Remove rows from table E.g, -> DELETE FROM employees Where age > 60;
+DROP : Entire table E.g, : DROP TABLE Employee;
+TRUNCATE : Remove all Rows from Table E.g, -> TRUNCATE TABLE employees;
+           And Truncate Does not delete Primary key
+           it delete all data but retains schema and constrains like prime keys.
+
+Q) What are Constraints and its Types
+
+   Set of rules applied to columns in a table to ensure data integrity and valadity.
+   PK,FK,UNIQUE,NN,CHECK,DEFAULT 
+
+Q) Change name mohan to rohan
+
+   UPDATE Users 
+   SET name = 'rohan';
+   Where name = 'mohan';
+
+Q. Primary key one in a table not be null
+Q. Can we put more then one PK No
+Q. is it possible to drop PK 
+   Yes Alter table table_name
+    Drop PK
+Q.F.Key
+  Used to Combine two or more tables 
+  it can be more than one 
+  Accept NULL values as well
+
+Q. Can we delete data in PR table if data existing n child table
+   For that we firstly delete through the child first and then to the PT
+Q. 2 joins in 3 table Yes we can
+Q. View -> Dynamically constructed form of a table that we use to make commands easy 
+           and used to watch the regular required specific data multiple times in a day
+
+           Select * from table_name
+           where salary in range of 50K and 60K
+
+instead of solving this much i would simply put it in a view 
+   select * from view that ive created 
+   which is more easy and faster
+
+Q. Table and View has same row id is possible -> Yes.
+Q. Table and Materalized View has diff row id is possible -> Yes.
+Q. Materalized view better version of Normal view
+Q. Drop main table View will exist. Yes if the values are stored in Materalized view
+   Not in view coz table are so on a cache memory.
+Q. Materilize view take physical space -> yes
+   VAlues are changing Dynamically.
+Q. DDL command in view -> No.
+Q. DML in Materalized view  
+Q. DDL in materialized view -> Yes
+Q. Drop view -> Yes we Can 
+Q. What is Dual -> basically Dummy table that we used 
+Q. Sis Date -> Used Current Date as a reference 
+Q. Aggregate -> MIN(),MAX(),SUM(),AVG(),COUNT.
+Q. Where and Having 
+   Having used after Group by,we need to use aggregate function, it faster  
+   Where used anywhere,Not Need Agg 
+Q. Delete -> Row Deletion it can be rollback & Truncate -> delete everything,we cant rollback
+   Between Delete & Truncate (Truncate is faster).
+
+
+
+ 
+
+
+
+
+
+
+
+

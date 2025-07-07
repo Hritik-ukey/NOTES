@@ -1,0 +1,105 @@
+Pointers : 
+
+int a = 10;
+int *p = &a;
+
+& -> Address-of operator
+* -> Dereference Operator
+
+Use Cases : DMA(malloc/new),Fun arg,DS (LL,Graph,Tree),Efficiency(Avoids coping large structures)
+
+Types : 
+       1. NULL -> int* ptr = NULL;
+       2. Daingling -> Pointing to deleted memo
+       3. Void -> GEneric pointer void *p;
+       4. Wild -> uninisilized pointer int *p;
+
+      int arr[3] = {10,20,30};
+      int *p = arr;
+      cout<<*(p+1) // 20
+
+  Pass By Refference :
+      
+         int a = 10;
+         update(&a);
+
+       void update(int *a){
+          *p = *p+1;
+          }
+   
+   The value of a is 6;
+
+Pointer To Pointer :
+
+    int a = 10;
+    int *p = &a;
+    int **q = &p;
+
+    cout<<a<<endl;     // 10
+    cout<<*p<<endl;    // 10
+    cout<<p<<endl;     // 0x61ff08
+    cout<<**q<<endl;   // 10
+    cout<<q<<endl;     // 0x61ff04
+    cout<<*q<<endl;    // 0x61ff08
+
+    //Here (p) = (*q) 0x61ff08...
+
+CHAR POINTERS : 
+
+   char *ptr = "Hellow";
+   cout<<*ptr<<endl;  // stored in RAM  -> H
+   cout<<ptr<<endl;   // Hellow
+   char arr[] = "Hellow"; //Stored inStack
+   cout<<arr[0]<<endl; //-> H
+   cout<<*arr<<endl; //-> H
+   cout<<*(arr+1)<<endl;  //-> e
+   cout<<arr<<endl; // Hellow
+
+   // Whole print krna ho to Use karo while loop
+
+    char *str = "Hellow";
+    while (*str != '\0')
+    {
+        cout<<*str++;
+    }
+    // Hellow
+
+
+  char arr[] = "World";
+  cout<<arr<<endl; //World
+  cout<<*arr<<endl; //W
+
+  char *p = arr; //or *p = &arr[0];
+  cout<<*p<<endl; //W
+  cout<<p<<endl; // World
+
+
+  // It Can't get reinitialized
+  char str[] = "Hellow";
+  char str = "People";
+
+
+  char *s = "abc";
+  cout<<*s<<endl; // a
+  cout<<s<<endl; //abc
+  cout<<*(s+1)<<endl; //b
+  cout<<s+1<<endl; //bc
+
+ASCII CODING : 
+               A to Z       a to z      '0'to '9'  ' '
+               65   90     97   122      48   57    32
+
+
+  char ch = 'A';
+  cout<<ch<<endl; // A
+  cout<<int(ch)<<endl; // 65
+  
+  int zero = '0';
+  int nine = '9';
+  int space = ' ';
+  cout<<zero<<endl; // 48
+  cout<<nine<<endl; // 57
+  cout<<space<<endl; // 32
+
+
+

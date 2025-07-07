@@ -1,0 +1,55 @@
+OS : 
+) Sheduling Algorithms
+) Thread Vs process 
+) How can you Achieve multithreading 
+) semaphores & Binary Semaphores 
+) Paging & Segmentation
+) 
+
+
+OOPS : 
+      Constructor & Destructor
+      Abstraction and Encapsulation
+
+
+
+Project Based questions 
+
+Q. Exception Handling
+Q. How to connect database while creting API 
+Q. How do you test API
+Q. What is Swagger
+Q. What is dependency injection
+
+React based 
+1. What is lifecycle methods
+2. Different types of react hooks
+3. useReducer hooks
+4. Context API 
+
+DBMS : 
+Difference bwt data and information
+ACID properties
+What is tranisictions
+joins and types of joins
+oral on self join
+
+SQL :
+DML 
+DDL 
+Normalize the table 
+nth salary
+
+
+DSA:
+string reversal
+palindrome or not string 
+longest palindrome subsequence
+Hashmap check if the array can be split in n/2 (even odd frequency possiblity)
+By Candies (By Greedy)
+Maximum sum subarray (leetcode submit)
+Kadanes Algorithm
+SP :
+DSA : reverese LL iterative TC & SC 
+      Recursive (TC & SC)
+DP 

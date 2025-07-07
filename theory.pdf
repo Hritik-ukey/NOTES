@@ -1,0 +1,194 @@
+TCS
+ 1) Mentioned data structure and sql
+=>  A data structure is a way of organizing and storing data. It allows for efficient access and manipulation of data
+    has several built-in data structures, as well as the ability to create user-defined data structures.
+
+Buit in Data Structure 
+list , tuples , dictionaries ,sets
+
+user defined
+
+Stack , Queue , LL Hash
+
+
+ 2) Liner & Non Linear
+
+    Linear structures store data sequentially (like arrays, stacks, queues), while non-linear ones (like trees and graphs) 
+    store data hierarchically or in a networked form.
+
+ 3) what is binary tree and what is the need of it
+    A binary tree is a hierarchical structure where each node has at most two children. It helps in fast insertion, deletion, 
+    and searching compared to linear data structures.
+
+ 4) Explain all traversal
+    Tree traversals:
+
+    Inorder (LNR) – Left, Node, Right
+
+    Preorder (NLR) – Node, Left, Right
+
+    Postorder (LRN) – Left, Right, Node
+
+    Level Order – Breadth-first traversal using a queue
+
+ 5) Why do we need BST
+    BST maintains data in sorted order, allowing efficient search, insert, and delete operations with time complexity O(log n)
+    in average cases.
+
+ 6) SQL 
+    SQL (Structured Query Language) is a standard language used to store, retrieve, and manipulate data in relational databases. It allows end-users 
+    to communicate with databases and perform tasks like creating, updating, and deleting databases.
+
+ 7) What are r view and materialised view
+A view is a virtual table based on a query; data is not stored. A materialized view stores the result physically and is refreshed periodically.
+
+ 8) Diff btn Function and Procedure
+
+ Function returns a value and is used in SELECT statements.
+
+ Procedure may or may not return a value, supports transactions, and is more versatile for complex logic.
+
+ 9) Group and Where Clause
+
+WHERE filters rows before grouping.
+
+GROUP BY groups rows with same values.
+Use HAVING to filter after grouping.
+
+
+ 10) can we do indexing on views
+Yes, but only on materialized views or indexed views (in some DBMS). Regular views cannot be directly indexed.
+
+Cognizant 2024
+
+1) Sql better tha Filesysystem
+=> Scalibilityis the major advantage. Databases use indexing , caching , & partitioning to maintain the speed at any scale.
+ 
+2) In which situation we use LL 
+   When frequent insertion and deletion are required and memory efficiency is crutial.
+   It allows DMA (Dynamic memo all) CAn grow and shrink without a fixed size limitations.
+
+3) Polymorphism means “many forms.”
+In programming, it means one thing behaves differently in different situations.
+
+TV remote increase channel changes
+AC remote increace or decreases temperature
+
+Compile time Polymorphism / Function overloading / Operator overloading
+
+→ Decided at compile time
+→ Example: Same function name, different arguments
+
+void show(int x);
+void show(string s);
+
+Run-time Polymorphism (Method Overriding using Virtual Functions)
+
+→ Decided at runtime
+→ Example: A base class pointer calling derived class's function
+
+class Animal {
+public:
+    virtual void sound() { cout << "Some sound\n"; }
+};
+
+class Dog : public Animal {
+public:
+    void sound() override { cout << "Bark\n"; }
+};
+
+Animal* a = new Dog();
+a->sound();  // Output: Bark
+
+Q) Inheritance & its types
+
+Inheritance in C++ is a mechanism that allows a class (derived class)
+to inherit properties and methods from another class (base class). 
+
+Types of inheritance in C++:
+Single Inheritance: A derived class inherits from only one base class.
+Multiple Inheritance: A derived class inherits from multiple base classes.
+Hierarchical Inheritance: Multiple derived classes inherit from a single base class.
+Multilevel Inheritance: A derived class inherits from another derived class, 
+forming a chain of inheritance.
+Hybrid Inheritance: A combination of multiple inheritance types.
+
+) Local & Instance Variable
+
+Local  : Scope within a block uses stack memory, existence during exection,Accesble by object
+void show() {
+    int x = 10;  // Local variable
+    cout << x;
+}
+
+Global : Inside class (outside object) uses heap memo,Through the object,as long as object exists,
+Not Accesible by object
+
+class Person {
+    int age;  // Instance variable
+
+public:
+    void setAge(int a) {
+        age = a;
+    }
+
+    void showAge() {
+        cout << age;
+    }
+};
+
+Q) Data Structute in breif with example in real life.
+   A way to store and organize data so it can be used efficiently.
+   Array : Stored elements in a fixed order.
+   LinkedList : Dynamic memory , easy insertion and deletion.
+   Stack : LIFO
+   QUEUE : FIFO
+   HASH TABLE : Fast data lookup
+   GRAPH : Networks,connections E.g,-> Google maps.
+
+Q) Try Catch & Thorw in cpp
+   TRY : Wrap code that might cause an error
+   CATCH : Handle the thrown exception
+   THROW : Raise (thrown) an exception
+
+
+   int balance = 500;
+   int withdrawn;
+
+   cout<<"Enter amount to be withdrawn : ";
+   cin>>withdrawn;
+
+   try{
+    if(withdrawn  >  balance)
+    throw "insufficient balance";
+    balance -= withdrawn;
+
+    cout<<"withdrawn sucessfull : Remaining Balance : "<<balance;
+   }
+   catch (const char* msg){
+    cout<<"Error : "<<msg;
+   }
+
+Q) GArbage Collection : Automatic process of freezing memory which is no longer in use by the program 
+                        Not in cpp but pytho,c#,java.
+Q) Errors : Serious problem recovery not possible. e.g, System faliure 
+   Exceptions : Program can catch and handle it.   e.g, runtime issues
+
+
+
+
+
+   
+
+VITE_API_URL='http://localhost:5000'
+VITE_PEXELS_API_KEY=YnHw4TjkHngtPJIrzPEDjhikg5xa41NAcvFBrEYlOtwoXN8nQXsToBaD
+VITE_GEMINI_API_KEY=AIzaSyC1bhf4XlZGagIVAuG-Lsedpt1sAqY1Orw
+
+
+
+MONGO_URI=mongodb+srv://nodeuser:lXHANV17OKvtJPL8@node.fnlzi.mongodb.net/dashboardapp
+
+PORT=5000
+CLOUDINARY_CLOUD_NAME=dggatk4xw
+CLOUDINARY_API_KEY=859774846699349
+CLOUDINARY_API_SECRET=YHaO2_I_-xHpCL71ymxYnDkaFro

@@ -1,0 +1,320 @@
+Non relational database
+
+Sharding -> Horizontal Scaling of data make it flexible
+if data overflow on one server you can make another server on parallel and put the rest of the record in it.
+
+advantages : Flexible schemeas
+             high performance for read and write operation
+             powerful query language
+             Replicate data very easily
+
+like stock market in bson format (binary formate) quick changes adapt ability 
+
+Mongodb Atlas -> jo code local computer me liikhte ho vo ab cloud me jo deployment me kaam aati hai
+
+
+
+MongoDB shell cmd
+
+DB->Collections->Documents->Data
+
+Mongosh
+ctrl+L
+use school
+show dbs
+db.createCollection("students")
+show collections
+
+Up arrow for previous cmd
+
+rename : db.students.renameCollection("student")
+
+db.help() // all cmd mongosh cmd
+
+
+db.student.help()
+
+db.library.drop()
+
+
+//school Database Drop
+db.dropDatabase()
+
+
+use admin
+
+
+if switch between databases still use use
+
+-----------------------------------------------------------------------
+) Collection ke andar new document add/read/update kasie kar sakte hai
+
+
+db.collection_name.insertOne({field1:"value",field2:value})
+
+db.collection_name.insertMany([
+  {field1:"value",field2:"value"},
+  {field3:"value",field4:"value"}
+
+])
+
+test> show dbs
+admin    40.00 KiB
+config  108.00 KiB
+local    72.00 KiB
+
+test> use school
+switched to db school
+
+school> db.createCollection("students")
+{ ok: 1 }
+school> db.students.insertOne({name:"Akshay kumar",age:25,class:"BCA"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('68577c7c3f752f80bf748a5f')
+}
+school> db.students.find()
+[
+  {
+    _id: ObjectId('68577c7c3f752f80bf748a5f'),
+    name: 'Akshay kumar',
+    age: 25,
+    class: 'BCA'
+  }
+]
+school> db.students.insertOne({name:"Akshay khanna",age:28,class:"MCA"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('68577ccf3f752f80bf748a60')
+}
+school> db.student.find()
+
+school> db.students.insertMany([{name:"Salman khan",age:55,class:"Btech"},{name:"sharukh khan",age:52,class:"B.com"},{name:"Amir khan",age:68,class:"IIT"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('68577deb3f752f80bf748a61'),
+    '1': ObjectId('68577deb3f752f80bf748a62'),
+    '2': ObjectId('68577deb3f752f80bf748a63')
+  }
+}
+school> db.students.find()
+[
+  {
+    _id: ObjectId('68577c7c3f752f80bf748a5f'),
+    name: 'Akshay kumar',
+    age: 25,
+    class: 'BCA'
+  },
+  {
+    _id: ObjectId('68577ccf3f752f80bf748a60'),
+    name: 'Akshay khanna',
+    age: 28,
+    class: 'MCA'
+  },
+  {
+    _id: ObjectId('68577deb3f752f80bf748a61'),
+    name: 'Salman khan',
+    age: 55,
+    class: 'Btech'
+  },
+  {
+    _id: ObjectId('68577deb3f752f80bf748a62'),
+    name: 'sharukh khan',
+    age: 52,
+    class: 'B.com'
+  },
+  {
+    _id: ObjectId('68577deb3f752f80bf748a63'),
+    name: 'Amir khan',
+    age: 68,
+    class: 'IIT'
+  }
+]
+
+ye sare Jason formte me hum bna rahe hai but backend me voo binary me hi ban raha hai
+
+-----------------------------------------------------------------------------------------
+Agar galat data enter kar diya ho to
+
+
+school> db.students.insertOne({name:"Akshay khanna",age:28,class:"MCA"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('68577ecc3f752f80bf748a64')
+}
+
+C:\Users\hriti>mongosh
+Current Mongosh Log ID: 685780a11ee991b990748a5e
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.5.3
+Using MongoDB:          8.0.10
+Using Mongosh:          2.5.3
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2025-06-21T18:58:23.587+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> show dbs
+admin    40.00 KiB
+config  108.00 KiB
+local    72.00 KiB
+school   72.00 KiB
+test> use school
+switched to db school
+school> show collections
+students
+school> db.students.find()
+[
+  {
+    _id: ObjectId('68577c7c3f752f80bf748a5f'),
+    name: 'Akshay kumar',
+    age: 25,
+    class: 'BCA'
+  },
+  {
+    _id: ObjectId('68577ccf3f752f80bf748a60'),
+    name: 'Akshay khanna',
+    age: 28,
+    class: 'MCA'
+  },
+  {
+    _id: ObjectId('68577deb3f752f80bf748a61'),
+    name: 'Salman khan',
+    age: 55,
+    class: 'Btech'
+  },
+  {
+    _id: ObjectId('68577deb3f752f80bf748a62'),
+    name: 'sharukh khan',
+    age: 52,
+    class: 'B.com'
+  },
+  {
+    _id: ObjectId('68577deb3f752f80bf748a63'),
+    name: 'Amir khan',
+    age: 68,
+    class: 'IIT'
+  },
+  {
+    _id: ObjectId('68577ecc3f752f80bf748a64'),
+    name: 'Akshay khanna',
+    age: 28,
+    class: 'MCA'
+  }
+]
+school> db.createCollection("personal")
+{ ok: 1 }
+
+> 1 | db.personal.insertOne({name:"Mithlesh",age:22,kids:null,hobbies: ["music","sports"],address:{"street":"bhangad",city:"bangluru","zip":1001})
+school> db.personal.insertOne({name:"Mithlesh",age:22,kids:null,hobbies: ["music","sports"],address:{"street":"bhangad",city:"bangluru","zip":1001}})
+{
+  acknowledged: true,
+  insertedId: ObjectId('6857823a1ee991b990748a5f')
+}
+school> db.students.find()
+[
+  {
+    _id: ObjectId('68577c7c3f752f80bf748a5f'),
+    name: 'Akshay kumar',
+    age: 25,
+    class: 'BCA'
+  },
+  {
+    _id: ObjectId('68577ccf3f752f80bf748a60'),
+    name: 'Akshay khanna',
+    age: 28,
+    class: 'MCA'
+  },
+  {
+    _id: ObjectId('68577deb3f752f80bf748a61'),
+    name: 'Salman khan',
+    age: 55,
+    class: 'Btech'
+  },
+  {
+    _id: ObjectId('68577deb3f752f80bf748a62'),
+    name: 'sharukh khan',
+    age: 52,
+    class: 'B.com'
+  },
+  {
+    _id: ObjectId('68577deb3f752f80bf748a63'),
+    name: 'Amir khan',
+    age: 68,
+    class: 'IIT'
+  },
+  {
+    _id: ObjectId('68577ecc3f752f80bf748a64'),
+    name: 'Akshay khanna',
+    age: 28,
+    class: 'MCA'
+  }
+]
+school> db.personal.find()
+[
+  {
+    _id: ObjectId('6857823a1ee991b990748a5f'),
+    name: 'Mithlesh',
+    age: 22,
+    kids: null,
+    hobbies: [ 'music', 'sports' ],
+    address: { street: 'bhangad', city: 'bangluru', zip: 1001 }
+  }
+]
+
+school> db.personal.insertOne({name:"shailesh",age:20,kids:null,hobbies: ["study","rap"],address:{"street":"jaipur",city:"chitood","zip":0001}})
+{
+  acknowledged: true,
+  insertedId: ObjectId('685783341ee991b990748a60')
+}
+school> show dbs
+admin    40.00 KiB
+config  108.00 KiB
+local    72.00 KiB
+school  112.00 KiB
+school> db.personal.find()
+[
+  {
+    _id: ObjectId('6857823a1ee991b990748a5f'),
+    name: 'Mithlesh',
+    age: 22,
+    kids: null,
+    hobbies: [ 'music', 'sports' ],
+    address: { street: 'bhangad', city: 'bangluru', zip: 1001 }
+  },
+  {
+    _id: ObjectId('685783341ee991b990748a60'),
+    name: 'shailesh',
+    age: 20,
+    kids: null,
+    hobbies: [ 'study', 'rap' ],
+    address: { street: 'jaipur', city: 'chitood', zip: 1 }
+  }
+]
+school>
+
+ address: { street: 'jaipur', city: 'chitood', zip: 1 } -> object
+----------------------------------------------------------------------------------------------------
+30 min video 
+) if age:35 ki jaghe "dal diye"
+
+db.createCollection("students",{
+validator: {
+$jshonSchema: {
+required:["name","age"], title:"Student Object Validation",
+properties:{
+   age: {
+     bsonType: "int",
+     minimum: 5,
+     maximum: 20,
+     description:"Age must be an integer between 5 and 20"
+    },
+           }
+              }
+            }
+});
+-----------------------------------
+

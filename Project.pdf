@@ -1,0 +1,36 @@
+Q. Angular vs  React
+
+Angular Provides more optioned and structures approaches for development 
+with builtin tools
+
+React outperforms angular due to rendering , optimization , and virtual Dom implementation.
+
+Q. Why React
+It manages states in a more predectible and managible way especially in complex apps
+It is an centralized way by which it makes it easier to understand how states are changing.
+
+Q. MongoDB vs SQL 
+
+MongoDB is more scalable than SQL Server
+MongoDB does not have any Schema provide more flexibility and allowing it to work with
+unstructure and semi-structured and structured data.
+
+Q. callback function 
+=> Which passes as an argument to another function and is executed after the completion of some operation 
+
+     function greet(name,callback){
+        console.log("Hello" + name + "!");
+        callback();
+     }
+
+     function sayGoodbye(){ 
+        console.log("GoodBye");
+     }
+
+     greet("John", sayGoodbye);
+
+     // output 
+     //Hello , john
+     //Goodbye 
+
+

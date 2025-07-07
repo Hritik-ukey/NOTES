@@ -1,0 +1,1118 @@
+class structure and Enum difference with best short and easy example
+
+
+🧱 Struct (or Class)
+A struct (or class) is used to group related data (and functions) together. Think of it like a blueprint for an object.
+struct Person {
+    string name;
+    int age;
+};
+
+Person p = {"Alice", 25};
+
+This creates a Person with a name and age.
+
+
+Enum
+An enum is used to define a set of named constant values. It's great for representing a fixed list of options.
+enum Color { RED, GREEN, BLUE };
+
+Color favorite = GREEN;
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+enum directions{
+    EAST,WEST,NORTH,SOUTH
+};
+int main(){
+    directions d = EAST;
+    cout<<d;
+    return 0;
+}
+output : 0
+
+if EAST = 5;
+output = 5;
+
+
+This sets favorite to one of the predefined values.
+
+🔑 Key Differences
+| Feature           | Struct/Class               | Enum | 
+| Purpose           | Group different data types | Define named constants | 
+| Members           | Variables and functions    | Only constant values | 
+| Modifiable        | Yes                        | No (values are fixed) | 
+| Example Use       | Represent a person,car,etc.| Represent states, colors, etc. | 
+
+
+
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+class Teacher {
+    public:
+    //properties // attributes
+    string name;
+    string dept;
+    string subject;
+    double salary;
+
+    //methods //member functions
+    void changeDept(string newdept){
+     dept = newdept;
+    }
+};
+int main(){
+    Teacher t1;
+    t1.name = "Kabir";
+    cout<<t1.name<<endl;
+    return 0;
+}
+
+Public : accessible to everyone
+Private : inside class
+Protected : inside class and to its derived class
+
+Setter Getter
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+class Teacher {
+    private:
+    double salary;
+    
+    public:
+    void setsalary(double s){
+      salary = s;
+    }
+
+    int getsalary(){
+     return salary;
+    }
+};
+int main(){
+    Teacher t1;
+    t1.setsalary(25000);
+    cout<<t1.getsalary()<<endl;
+    return 0;
+}
+
+Encapsulation : Wraping up of Data Members And Member Function together into a single unit. 
+                real life e.g, ATM
+
+Abstraction   : Presenting only essential information to the user, hiding complex details.
+                real life e.g, A Car
+
+Inheritance   : Creating new classes based on existing ones, inheriting their attributes and methods.
+                E.g, Father Son 
+Polymorphism  : the ability of something to have or to be displayed in more than one form
+                E.g, Person 
+
+Data Hiding : MAke essential data private.
+
+   Constructor > Same name as class name
+               > No Return type
+               > Automatically called during obj creation.
+               > Memo Allocated when obj created.
+               > Used to initialize obj.
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+class Teacher {
+    public:
+    //Default Non Parameterized
+    Teacher(){
+        cout<<"Hii i am a constructor : "<<endl;
+    }
+
+    string name;
+    string department;
+
+    //Parameterized 
+    Teacher(string n,string d){
+    this->name = n;
+    this->department=d;
+    }
+
+    //copy
+    void getinfo(){
+        cout<<"name : "<<name<<endl;
+        cout<<"Dept : "<<department<<endl;
+    }
+
+    //custom copy constructor
+    Teacher (Teacher &orgobj){
+        this->name = orgobj.name;
+        this->department = orgobj.department;
+    }
+};
+int main(){
+    cout<<"Default Non-Parameterized : "<<endl;
+    Teacher t1;
+    
+    cout<<"Parameterized : "<<endl;
+    Teacher t2("Rahul","Computer Science");
+    cout<<t2.name<<endl<<t2.department<<endl;
+
+    cout<<"Custom Copy : "<<endl;  //otherwise compiler automatically make copy constructor
+    Teacher t3(t2);
+    t3.getinfo();
+
+
+    return 0;
+}
+      Need of copy constructor : Creating new objects with the help of existing one. 
+
+public:
+    Teacher(){
+        cout<<"Hii i am a constructor : "<<endl;
+    }
+    ~Teacher(){
+        cout<<"Hii i am a Destructor : "<<endl;
+    }
+
+     Teacher t1;
+
+
+
+     Constructor overloding possible but destructor overloading not.
+   
+     if obj not destroyed : 
+     Memory Leak :
+
+     #include <iostream>
+using namespace std;
+
+void memoryLeak() {
+    int* ptr = new int(10);  // Memory allocate ho rahi hai
+    cout << "Value: " << *ptr << endl;
+    // ❌ Memory free nahi ho rahi!
+}
+
+int main() {
+    for (int i = 0; i < 1000000; i++) {
+        memoryLeak();  // Har baar naye memory blocks allocate ho rahe hain!
+    }
+    return 0;
+}
+
+Is program me har baar new se memory allocate ho rahi hai, par delete nahi ho raha, to eventually system slow ho sakta hai ya crash ho sakta hai.
+
+
+void memoryLeakFixed() {
+    int* ptr = new int(10);
+    cout << "Value: " << *ptr << endl;
+    delete ptr;  // ✅ Memory free ho rahi hai!
+}
+
+int main() {
+    for (int i = 0; i < 1000000; i++) {
+        memoryLeakFixed();  // Har baar memory free ho rahi hai, koi leak nahi!
+    }
+    return 0;
+}
+---------------------------------------------------------------------------------------------------------------
+🔹 Base classes ke constructors inheritance order me call hote hain.
+🔹 Destructors reverse order me call hote hain.
+
+Constructor aur Destructor ka calling order inheritance ke type par depend karta hai. 🚀
+Jab object create hota hai, to constructor base class se derived class tak call hota hai.
+Jab object destroy hota hai, to destructor derived class se base class tak reverse order me call hota hai.
+
+ Virtual base class ka constructor sabse pehle call hota hai, destructor sabse last!
+
+---------------------------------------------------------------------------------------------------------------
+  Shallow & Deep Copy
+
+ Shallow copy : Copies all member values from one object to another.
+                stack mem allocate
+ Deep copy : not only mem val but also copies of Dynamically Allocated
+ memories to the members point to. Runtime 
+
+
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+class Student {
+    public:
+    double* cgpaptr;
+    string name;
+
+    Student(string name,double cgpa){
+     this->name=name;
+     cgpaptr = new double;
+     *cgpaptr = cgpa;
+    }
+     
+    Student(Student &obj){
+        this->cgpaptr = obj.cgpaptr;
+        this->name = obj.name;
+    }
+    void getinfo(){
+        cout<<"Name : "<<name<<endl;
+        cout<<"CGPA pointer : "<<*cgpaptr<<endl;
+    }
+    
+};
+int main(){
+   Student s1("rahul kumar",8.9);
+   Student s2(s1);
+   s1.getinfo();
+
+   *(s2.cgpaptr) = 9.2;
+   s1.getinfo();
+
+   
+    return 0;
+}
+
+
+ Name : rahul kumar
+ CGPA pointer : 8.9
+ Name : rahul kumar
+ CGPA pointer : 9.2
+
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+class Student {
+    public:
+    double* cgpaptr;
+    string name;
+
+    Student(string name,double cgpa){
+     this->name=name;
+     cgpaptr = new double;
+     *cgpaptr = cgpa;
+    }
+     
+    Student(Student &obj){
+        this->cgpaptr = obj.cgpaptr;
+        cgpaptr = new double;
+        *cgpaptr = *obj.cgpaptr;
+        this->name = obj.name;
+    }
+    void getinfo(){
+        cout<<"Name : "<<name<<endl;
+        cout<<"CGPA pointer : "<<*cgpaptr<<endl;
+    }
+    
+};
+int main(){
+   Student s1("rahul kumar",8.9);
+   Student s2(s1);
+   
+   s1.getinfo();
+   *(s2.cgpaptr) = 9.2;
+   s1.getinfo();
+ 
+   s2.name = "garima";
+   s2.getinfo();
+
+    return 0;
+}
+
+Name : rahul kumar
+CGPA pointer : 8.9
+Name : rahul kumar
+CGPA pointer : 8.9
+Name : garima
+CGPA pointer : 9.2
+
+
+
+1️⃣ Shallow Copy
+🔹 Shallow Copy sirf object ka reference copy karta hai, actual data nahi.
+🔹 Agar original object change hota hai, to copy bhi change ho jati hai.
+🔹 Pointer-based data structures me dikkat hoti hai, kyunki dono objects same memory ko refer karte hain.
+
+
+💀 Dikkat: Shallow Copy me name pointer sirf reference copy karta hai, original data nahi. 
+Is wajah se ek object ko change karne se doosra bhi change ho jata hai.
+
+2️⃣ Deep Copy
+🔹 Deep Copy object ka actual data copy karta hai, sirf reference nahi.
+🔹 Har object ke liye naye memory allocate hoti hai, yani original aur copy independent hote hain.
+🔹 Pointer-based data structures me recommended.
+
+
+✅ Deep Copy ka fayda: Har object ke liye nayi memory allocate hoti hai, to dono objects independent hote hain.
+
+Comparison:
+| Feature           | Shallow Copy                                        | Deep Copy | 
+| Memory Allocation | Sirf pointer copy hota hai                          | Nayi memory allocate hoti hai | 
+| Data Modification | Ek object change hone se doosra bhi change hota hai | Objects independent hote hain | 
+| Recommended for   | Simple data types (non-pointer)                     | Pointer-based structures | 
+| Performance       | Fast, but risky                                     | Thoda slow, but safe | 
+
+
+💡 Agar pointers use ho rahe hain, to always Deep Copy prefer karo! 😃
+------------------------------------------------------------------------------------------------------------------------------------
+
+INHERITANCE : 
+             When prop of base class inherited by derived class code reusability  
+
+                    DERIVED 
+
+    BASE            PUBLIC     PRIVATE   PROTECTED 
+ 
+    PUBLIC         PUBLIC      PRIVATE   PROTECTED
+
+    PRIVATE          N            N         N
+
+    PROTECTED      PROTECTED   PRIVATE   PROTECTED
+
+    TYPES : 
+            SINGLE : A->B
+            MULTILVL : A->B->C
+            MULPLE : P    P  
+                       C
+            HYRIERCAL :
+                         P 
+                      C    C
+            HYBRID : ANY PR ANY Child
+
+
+
+Single Inheritance : 
+
+#include <iostream>
+using namespace std;
+
+class A {
+public:
+    void showA() {
+        cout << "Class A" << endl;
+    }
+};
+
+class B : public A {  // B inherits A
+public:
+    void showB() {
+        cout << "Class B" << endl;
+    }
+};
+
+int main() {
+    B obj;
+    obj.showA();  // Inherited from A
+    obj.showB();
+    return 0;
+}
+
+Class A  
+Class B  
+
+--------------------------------------------------------------------------
+Multilevel : 
+
+
+class A {
+public:
+    void showA() {
+        cout << "Class A" << endl;
+    }
+};
+
+class B : public A {  // B inherits A
+public:
+    void showB() {
+        cout << "Class B" << endl;
+    }
+};
+
+class C : public B {  // C inherits B
+public:
+    void showC() {
+        cout << "Class C" << endl;
+    }
+};
+
+int main() {
+    C obj;
+    obj.showA();
+    obj.showB();
+    obj.showC();
+    return 0;
+}
+
+Class A  
+Class B  
+Class C  
+-------------------------------------------------------------------------------
+Multiple :
+
+class A {
+public:
+    void showA() {
+        cout << "Class A" << endl;
+    }
+};
+
+class B {
+public:
+    void showB() {
+        cout << "Class B" << endl;
+    }
+};
+
+class C : public A, public B {  // C inherits A and B
+public:
+    void showC() {
+        cout << "Class C" << endl;
+    }
+};
+
+int main() {
+    C obj;
+    obj.showA();
+    obj.showB();
+    obj.showC();
+    return 0;
+}
+
+----------------------------------------------------------------------------------------------
+HYRIERCAL :
+
+class A {
+public:
+    void showA() {
+        cout << "Class A" << endl;
+    }
+};
+
+class B : public A {  // B inherits A
+public:
+    void showB() {
+        cout << "Class B" << endl;
+    }
+};
+
+class C : public A {  // C also inherits A
+public:
+    void showC() {
+        cout << "Class C" << endl;
+    }
+};
+
+int main() {
+    B objB;
+    C objC;
+
+    objB.showA();
+    objB.showB();
+
+    objC.showA();
+    objC.showC();
+
+    return 0;
+}
+
+Class A  
+Class B  
+Class A  
+Class C  
+
+------------------------------------------------------------------------------------------
+HYBRID :
+
+class A {
+public:
+    void showA() {
+        cout << "Class A" << endl;
+    }
+};
+
+class B : public A {  // B inherits A (Single Inheritance)
+public:
+    void showB() {
+        cout << "Class B" << endl;
+    }
+};
+
+class C {
+public:
+    void showC() {
+        cout << "Class C" << endl;
+    }
+};
+
+class D : public B, public C {  // D inherits both B and C (Multiple Inheritance)
+public:
+    void showD() {
+        cout << "Class D" << endl;
+    }
+};
+
+int main() {
+    D obj;
+    obj.showA();
+    obj.showB();
+    obj.showC();
+    obj.showD();
+    return 0;
+}
+
+Class A  
+Class B  
+Class C  
+Class D  
+-------------------------------------------------------------------------------------------
+
+Polymorphism : Ability of obj to take diff forms or behave differently
+               depending on the context which they are used 
+
+               .compile TIME  
+               same name diff parameters.
+               .constructor overloading .operator overloading 
+               *****************Function overloading ka E.g, int x,char ch;
+               
+               .run TIME      
+               same name same parameters implementation diff
+               ***********************E.g, Virtual functions 
+
+               parent getinfo() child getinfo()
+               Child c1; // print child 
+               Parent p1()// then parent
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  Virtual Functions : Functions that expected to be redefined in derived class
+- Jab hum Parent* pointer se Child object ko point karte hain, aur function call karte hain, to runtime pe Child ka function execute hota hai! 
+
+
+     
+
+#include <bits/stdc++.h>
+using namespace std; 
+
+class Parent{
+    public:
+    void hellow(){
+        cout<<"Parent hellow"<<endl;
+    }
+};
+class child : public Parent{
+    public:
+    void hellow(){
+        cout<<"Child hellow"<<endl;
+    }
+};
+int main()
+{
+    Parent p1;
+    p1.hellow();
+    
+    child c1;
+    c1.hellow();
+    
+    return 0;
+}
+  //Parent hellow
+  //child hellow
+-----------------------------------------------------------------------------------------
+#include <bits/stdc++.h>
+using namespace std; 
+
+class Parent{
+    public:
+    void hellow(){
+        cout<<"Parent hellow"<<endl;
+    }
+};
+class child : public Parent{
+    public:
+    void hellow(){
+        cout<<"Child hellow"<<endl;
+    }
+};
+int main()
+{
+    Parent p1;
+    p1.hellow();
+    
+    child c1;
+    c1.hellow();
+    
+    cout<<"................"<<endl;
+    
+    Parent *ptr = &c1;
+    ptr->hellow();
+    
+    return 0;
+}
+
+Parent hellow
+Child hellow
+................
+Parent hellow
+
+--------------------------------------------------------------------------------------
+
+class Parent{
+    public:
+    void hellow(){
+        cout<<"Parent hellow"<<endl;
+    }
+};
+class child : public Parent{
+    public:
+    void hellow(){
+        cout<<"Child hellow"<<endl;
+    }
+};
+int main()
+{
+    Parent p1;
+    p1.hellow();
+    
+    child c1;
+    c1.hellow();
+    
+    cout<<"................"<<endl;
+    
+    Parent *ptr = &c1;
+    ptr->hellow();
+    
+    return 0;
+}
+
+
+Parent hellow
+Child hellow
+................
+Child hellow
+
+PURPOSE :
+Virtual function ka purpose hai mainly runtime Polymorphism ko implement karna
+
+So that Dynamically we can decide which function should be called rather than like normal calls
+jha compile time pe deside hota hai
+
+ Agar har derived class ke liye alag-alag function manually check karna padta, to code complex ho jata. 
+ Virtual function se ye automated ho jata hai! 
+----------------------------------------------------------------------------------------
+
+Pure virtual function ek virtual function hota hai jo base class me sirf declare kiya jata hai,
+ par uska koi implementation nahi hota. 😃
+
+Pure Virtual Function Kya Hota Hai?
+- Sirf declaration hoti hai, implementation nahi.
+- Syntax: virtual void function_name() = 0;
+- Base class ko abstract class bana deta hai, yani uska object nahi ban sakta.
+- Derived class ko us function ko override karna compulsory hota hai, warna error aayega.
+
+Purpose :
+main purpose abstraction aur polymorphism ko implement karna hota hai. 
+Yani base class sirf ek blueprint provide karti hai, implementation derived class karti hai.
+
+
+Example:
+#include <iostream>
+using namespace std;
+
+class Shape {
+public:
+    virtual void draw() = 0;  // Pure virtual function
+};
+
+class Circle : public Shape {
+public:
+    void draw() override {
+        cout << "Drawing Circle" << endl;
+    }
+};
+
+class Rectangle : public Shape {
+public:
+    void draw() override {
+        cout << "Drawing Rectangle" << endl;
+    }
+};
+
+int main() {
+    // Shape s;  ❌ ERROR: Abstract class ka object nahi ban sakta!
+    
+    Shape* s1 = new Circle();    // Base class ka pointer
+    Shape* s2 = new Rectangle();
+
+    s1->draw();  // **Circle ka function call hoga**
+    s2->draw();  // **Rectangle ka function call hoga**
+
+    delete s1;
+    delete s2;
+
+    return 0;
+}
+
+
+Output:
+Drawing Circle
+Drawing Rectangle
+-----------------------------------------------------------------------------
+#include <iostream>
+using namespace std;
+
+class Parent {
+public:
+    virtual void show() = 0;  // Pure virtual function
+};
+
+class Child : public Parent {
+public:
+    void show() override {
+        cout << "Child class implementing pure virtual function" << endl;
+    }
+};
+
+int main() {
+    Parent* p;  // Parent class ka pointer
+    Child c;    
+    p = &c;  // Child ka address Parent pointer ko diya
+
+    p->show();  // **Runtime pe Child ka function call hoga!**
+
+    return 0;
+}
+
+Payment class sirf interface provide karti hai, implementation derived classes karti hain.
+-----------------------------------------------------------------------------------------------
+CLASS VS Abstraction :
+
+Class : Blueprint jo objects create karta hai,create objects,
+Interface : Abstract structure jo sirf function definitions deta ha, cant create objects,
+
+E.g, Class -> 
+class Parent {
+public:
+    void show() {
+        cout << "This is a Parent class" << endl;
+    }
+};
+
+class Child : public Parent {  // Inheritance
+public:
+    void show() {
+        cout << "This is a Child class" << endl;
+    }
+};
+
+
+E.g, Interface -> 
+
+class Interface {
+public:
+    virtual void show() = 0;  // Pure virtual function
+};
+
+class Child : public Interface {
+public:
+    void show() override {
+        cout << "This is an interface implementation" << endl;
+    }
+};
+
+
+Abstraction :
+           Hiding uneccesary details and showed only important one.
+           used to define interface for derived class
+
+Abstract class contains pure virtual function.
+a blue print of other class where thier properties can be implemented
+
+E.g, phone features,internal proccesing,chips
+      
+
+Stactic Variables : initialize once in a lifetime of a programm 
+                    Shared all the objects of the class.
+
+
+   #include <bits/stdc++.h>
+
+using namespace std;
+
+void fun(){
+    int x=0;
+    cout<<"value of x is" <<x <<endl;
+    x++;
+}
+int main(){
+    fun();
+    fun();
+    fun();
+    return 0;
+}
+
+    value of x is 0
+    value of x is 0
+    value of x is 0
+
+    static the x  = 0,1,2;
+
+    #include <bits/stdc++.h>
+
+using namespace std;
+
+class ABC {
+    public: 
+    ABC(){
+        cout<<"Constructor : "<<endl;
+    }
+     ~ABC(){
+        cout<<"Destructor : "<<endl;
+    }
+};
+int main(){
+    if(true){
+        ABC obj;
+    }
+    cout<<"end of main function : "<<endl;
+    return 0;
+}
+
+Constructor : 
+Destructor : 
+end of main function : 
+
+
+class ABC {
+    public: 
+    ABC(){
+        cout<<"Constructor : "<<endl;
+    }
+     ~ABC(){
+        cout<<"Destructor : "<<endl;
+    }
+};
+int main(){
+    if(true){
+       static ABC obj;
+    }
+    cout<<"end of main function : "<<endl;
+    return 0;
+}
+
+Constructor : 
+end of main function : 
+Destructor : 
+
+
+
+
+
+0) Git :  A version control system to track changes in code locally
+   GittHub : A cloud pltform to host and manage git repositories online
+
+1) What is Constructor & Purpose of it.
+It is a special type of function to create object.It prepares new objects for use
+having no return type call immediately when the obj is created can be overloaded by mul cons's
+
+Default: 
+
+class A{
+    public:
+};
+int main(){
+    return 0;
+}
+
+Parameterized
+
+public:
+        int val;
+        A(int x){
+            val = x;
+        }     
+
+        main(){
+            A a(10);
+            cout<<a<<endl;
+        }
+        
+Non Parameterized 
+A() {
+    cout<<"hii i am a constructor";
+}        
+
+Copy
+public:
+        int val;
+        A(int x){
+            val = x;
+        }     
+
+        A(A& a){
+            val=a.val;
+        }
+
+        main(){
+            A a1(20);
+            A a2(a1);
+            cout<<a2.val<<endl; //20
+        }
+
+2) Destructor : Special functions to destroy objects and free memory
+    called auto when obj goes out of scope
+    cant be overloaded takes No parameters
+
+    ~A() {cout<<"Hey i am a Destructor";}
+
+) Need of OPPS :
+Breaking down the complex problem into simple ones and helps to tackle with
+real life problems & make it easier to maintain developed and modified software.
+& it ensures the redability , reusability and Data Security.
+
+) Access Specifiers :
+It is a keyword used to control or specify the accessibility of class,methods etc.
+E.g, Public , Private , Protected (Access within the class & in child class) Not outside these classes.
+
+) 1. Inheritance
+"Reusing existing code by creating a child class from a parent class."
+
+class Vehicle {
+public:
+    void start() { cout << "Engine started\n"; }
+};
+
+class Car : public Vehicle {
+public:
+    void drive() { cout << "Driving car\n"; }
+};
+
+✅ Car can use both start() and drive() — reused behavior.
+
+
+Encapsulation
+"Wrapping data and code together, and restricting direct access to data
+
+class BankAccount {
+private:
+    int balance;  // private = cannot access directly
+
+public:
+    void deposit(int amount) { balance += amount; }
+    int getBalance() { return balance; }
+};
+
+Data (balance) is protected and only accessible through methods.
+
+Showing only essential features, hiding unnecessary details.
+
+class AbstractPrinter {
+public:
+    virtual void print() = 0;  // Pure virtual function
+};
+
+class PDFPrinter : public AbstractPrinter {
+public:
+    void print() override {
+        cout << "Printing PDF\n";
+    }
+};
+
+AbstractPrinter hides implementation details. Only the print() interface is exposed.
+
+) Method Overloading VS Overriding
+
+            OVERLOADING                                    OVERRIDING 
+            
+            COMPILE TIME                                   RUNTIME 
+            INHERITANCE                                   POLYMORPHISM 
+            PARAMETERS DIFF                               PARAMETERS SAME 
+            NO KEYWORDS                                   VIRTUAL IN BASE 
+
+
+            OVERLOADING :                                 OVERRIDING :
+
+             Class calc(){                                Class Animal{
+            int add(int a,int b){                         public:
+                return a+b;                                    virtual void sound(){
+            }                                                cout<<"Animal makes sound : "<<endl;
+                                                               }
+            double add(double a,double b){                     };
+                return a+b;                              Class Dog : public Animal {
+            }                                             public :
+             };                                            void sound override{
+             Calc c;                                       cout<<"Dog Barks"<<endl;
+            C.add(2,3);                                   }
+            c.add(2.5,5.5);                            };
+                                                    Dog d;
+                                                    d.sound();
+Overloading : Declare > 1 function with the same name
+              but diff parameters.
+
+overriding : Declare fun in base + Derive 
+             same name & parameters. 
+
+Abstracts Class : 
+               contains atleast 1 pure virtual function 
+               cant declare obj & cant create body.
+
+Virtual Functions : 
+                   A member fun declared in base class and redefined in derived class
+                   ensuring correct function is called for an object.
+
+                   LIMITATIONS : Slow , Difficult in debugging
+
+                   class Base{
+                    public : 
+                           virtual void print(){
+                            cout<<"Base";
+                           }
+                   };
+                   class Child : public class A {
+                             public:
+                             void print(){
+                                cout<<"child";
+                             }
+                   }
+
+                   Child c;
+                   Base* b = &c;
+                   b->print();
+
+// child
+
+Pure virtual Functions :
+                         declared in a base class that has no implementation within that base class. 
+                         Instead, it is intended to be overridden by derived classes. 
+
+Inline functions : Way to optimize programming performence
+                   reducing overhead related to a function call
+
+                  inline int square(int n){
+                    return n*n;
+                   }
+
+                   int n=5;
+                   int result = square(n)
+                   cout<<"Result is : "<<result<<endl;
+
+                   compiler replace fun calls with actual functions
+                   to avoid the overheads of the functions call.               
+
+Polymorphisms :  it occurs when we have many classes that are related to each other by inheritance.
+
