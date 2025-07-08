@@ -637,6 +637,175 @@ int maxProfit(vector<int>& prices) {
  Time: O(n)
 🧠 Space: O(1)
 ------------------------------------------------------------------------------------------
+Container with most water
+
+Input: height = [1,8,6,2,5,4,8,3,7]
+Output: 49
+Explanation: The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. 
+In this case, the max area of water (blue section) the container can contain is 49.
+Example 2:
+
+Input: height = [1,1]
+Output: 1
+
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+        int left = 0, right = height.size() - 1;
+        int maxarea = 0;
+        while (left < right) {
+            int h = min(height[left], height[right]);
+            int area = h * (right - left);
+            maxarea = max(maxarea, area);
+            if (height[left] < height[right]) {
+                ++left;
+            } else {
+                --right;
+            }
+        }
+        return maxarea;
+    }
+};
+------------------------------------------------------------------------------------------
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+vector<vector<int>> threeSum(vector<int>& nums) {
+    sort(nums.begin(), nums.end());  // Step 1: Sort the array
+    vector<vector<int>> result;
+    int n = nums.size();
+
+    for (int i = 0; i < n - 2; ++i) {
+        // Skip duplicate elements for the first number
+        if (i > 0 && nums[i] == nums[i - 1]) continue;
+
+        int left = i + 1;
+        int right = n - 1;
+
+        while (left < right) {
+            int sum = nums[i] + nums[left] + nums[right];
+
+            if (sum < 0)
+                ++left;
+            else if (sum > 0)
+                --right;
+            else {
+                result.push_back({nums[i], nums[left], nums[right]});
+                // Skip duplicates for left and right
+                while (left < right && nums[left] == nums[left + 1]) ++left;
+                while (left < right && nums[right] == nums[right - 1]) --right;
+                ++left;
+                --right;
+            }
+        }
+    }
+    return result;
+}
+ tc : O(n²)
+ sc : O(1)
+------------------------------------------------------------------------------------------
+#include <vector>
+using namespace std;
+
+vector<int> spiralOrder(const vector<vector<int>>& matrix) {
+    vector<int> res;
+    if (matrix.empty()) return res;
+
+    int top = 0, bottom = matrix.size() - 1;
+    int left = 0, right = matrix[0].size() - 1;
+
+    while (top <= bottom && left <= right) {
+        // Move right
+        for (int i = left; i <= right; ++i)
+            res.push_back(matrix[top][i]);
+        ++top;
+
+        // Move down
+        for (int i = top; i <= bottom; ++i)
+            res.push_back(matrix[i][right]);
+        --right;
+
+        // Move left
+        if (top <= bottom) {
+            for (int i = right; i >= left; --i)
+                res.push_back(matrix[bottom][i]);
+            --bottom;
+        }
+
+        // Move up
+        if (left <= right) {
+            for (int i = bottom; i >= top; --i)
+                res.push_back(matrix[i][left]);
+            ++left;
+        }
+    }
+
+    return res;
+}
+ TC :  O(m × n)
+ SC : O(1)
+------------------------------------------------------------------------------------------
+ #include <vector>
+using namespace std;
+
+void rotate(vector<vector<int>>& matrix) {
+    int n = matrix.size();
+
+    // Step 1: Transpose (swap matrix[i][j] with matrix[j][i])
+    for (int i = 0; i < n; ++i)
+        for (int j = i + 1; j < n; ++j)
+            swap(matrix[i][j], matrix[j][i]);
+
+    // Step 2: Reverse each row
+    for (int i = 0; i < n; ++i)
+        reverse(matrix[i].begin(), matrix[i].end());
+}
+ 
+ O(n²) time sc O(1)
+
+------------------------------------------------------------------------------------------
+#include <vector>
+using namespace std;
+
+void setZeroes(vector<vector<int>>& matrix) {
+    int m = matrix.size(), n = matrix[0].size();
+    bool firstRowZero = false, firstColZero = false;
+
+    // Check if first row and first column need to be zeroed
+    for (int i = 0; i < m; ++i)
+        if (matrix[i][0] == 0)
+            firstColZero = true;
+    for (int j = 0; j < n; ++j)
+        if (matrix[0][j] == 0)
+            firstRowZero = true;
+
+    // Use first row and column as markers
+    for (int i = 1; i < m; ++i)
+        for (int j = 1; j < n; ++j)
+            if (matrix[i][j] == 0)
+                matrix[i][0] = matrix[0][j] = 0;
+
+    // Zero out cells based on markers
+    for (int i = 1; i < m; ++i)
+        for (int j = 1; j < n; ++j)
+            if (matrix[i][0] == 0 || matrix[0][j] == 0)
+                matrix[i][j] = 0;
+
+    // Zero first column if needed
+    if (firstColZero)
+        for (int i = 0; i < m; ++i)
+            matrix[i][0] = 0;
+
+    // Zero first row if needed
+    if (firstRowZero)
+        for (int j = 0; j < n; ++j)
+            matrix[0][j] = 0;
+}
+
+ TC :  O(m × n)
+ SC : O(1)
+------------------------------------------------------------------------------------------
 vector<int> rearrangeBySign(vector<int>& nums) {
     vector<int> pos, neg;
     for(int x : nums) {
@@ -656,6 +825,36 @@ vector<int> rearrangeBySign(vector<int>& nums) {
 
 🕒 Time: O(n)
 🧠 Space: O(n)
+------------------------------------------------------------------------------------------------
+) Longest consecutive subsequence 
+Input:  nums = [100, 4, 200, 1, 3, 2]
+Output: 4
+Explanation: The longest consecutive sequence is [1, 2, 3, 4]
+
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        unordered_set<int> numSet(nums.begin(), nums.end());
+        int longest = 0;
+
+        for (int num : numSet) {
+            // Only start counting if it's the beginning of a sequence
+            if (!numSet.count(num - 1)) {
+                int current = num;
+                int streak = 1;
+
+                while (numSet.count(current + 1)) {
+                    current++;
+                    streak++;
+                }
+
+                longest = max(longest, streak);
+            }
+        }
+
+        return longest;
+    }
+};
 ------------------------------------------------------------------------------------------------
 long long factorial(int n) {
     long long res = 1;
