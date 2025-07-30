@@ -105,6 +105,8 @@ int main(){
 
 Encapsulation : Wraping up of Data Members And Member Function together into a single unit. 
                 real life e.g, ATM
+                data members : Account,balance
+                member functions : withdraw , deposite
 
 Abstraction   : Presenting only essential information to the user, hiding complex details.
                 real life e.g, A Car
@@ -589,19 +591,9 @@ Polymorphism : Ability of obj to take diff forms or behave differently
 
 
 
-
-
-
-
-
-
-
-
-
-
-
   Virtual Functions : Functions that expected to be redefined in derived class
-- Jab hum Parent* pointer se Child object ko point karte hain, aur function call karte hain, to runtime pe Child ka function execute hota hai! 
+- Jab hum Parent* pointer se Child object ko point karte hain, aur function call karte hain,
+ to runtime pe Child ka function execute hota hai! 
 
 
      

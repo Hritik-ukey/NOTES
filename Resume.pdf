@@ -8,8 +8,11 @@ Node.js, Express.js – You can create server-side APIs and backend logic.
 Databases:
 MongoDB, MySQL, SQL – You can store, retrieve, and manage data in both NoSQL and SQL databases.
 
-Tools & Platforms:
-Git, GitHub – For version control.
+My sql -> Used to store data, small scale applications used for
+Sql -> is query language used to perform action like update,delete,alter operations etc.
+
+Git -> version control tool make locally changes offline in your Computer
+Github -> its a cloud platform Which manages your source code
 
 Linux – Basic terminal and OS knowledge.
 

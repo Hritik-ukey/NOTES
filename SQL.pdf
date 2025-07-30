@@ -42,7 +42,7 @@ Revoke delete on climate from Asif;
 
 Q. Second Maxi
     select max(salary) from emp
-    where salary < (max(salary) from emp)
+    where salary < select(max(salary) from emp)
 
 Q. Max salary in a Group
 Select max(salary), c_name from emp

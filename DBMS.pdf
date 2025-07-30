@@ -51,8 +51,17 @@ FULL OUTER JOIN Departments ON Employees.dept_id = Departments.id;
 CROSS JOIN :
 SELECT * FROM Products
 CROSS JOIN Categories;
+Used to generate all the combination from both the tables
+ (rarely used in real-world apps).
 
- Combine all possible pairs (rarely used in real-world apps).
+
+SELF JOIN:
+
+SELECT *
+FROM table1 T1, table1 T2
+WHERE condition;
+
+to compare or combine data within the same table,
 
 Q) SUBSTRING()
 SELECT SUBSTRING('HelloWorld', 1, 5);  -- Output: 'Hello'

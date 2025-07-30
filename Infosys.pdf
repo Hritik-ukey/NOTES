@@ -21,6 +21,7 @@ Q. How do you test API
 Q. What is Swagger
 Q. What is dependency injection
 
+
 React based 
 1. What is lifecycle methods
 2. Different types of react hooks
@@ -53,3 +54,115 @@ SP :
 DSA : reverese LL iterative TC & SC 
       Recursive (TC & SC)
 DP 
+
+
+
+
+Q. delete drop truncate
+   Yes DELETE FROM Employees WHERE EmployeeID = 3;
+Q. User Authentication and Authorization Difference
+
+  Authentication : Verifies the users identity
+  Authorization : Grants or Denies permission to the users
+
+  Real Life Example : 
+  You show your ID (authentication) to security personnel to prove you are who you say you are. 
+  Then, you show your boarding pass (authorization) to the flight attendant to board the plane, which is a specific resource. 
+
+Q. Mongodb and its Features
+   MongoDB stores data in flexible, JSON-like documents with optional schemas. 
+   These documents are organized into collections, which are analogous to tables in a relational database. 
+
+   
+   Features: 
+             Indexing
+             Schemaless
+             Support ACID tranisictions
+
+
+Q. What is MySQL. and Features
+   MySQL is an open-source relational database management system (RDBMS) that utilizes Structured Query Language (SQL) for managing and manipulating data. 
+   It is widely used as a backend for web applications, content management systems, and various other data-driven systems.
+
+
+   Features : 
+              ACID properties
+              High Performance
+              Horizontal Scaling 
+              raeplication of data is quite easy
+
+
+Q. SDLC models phases
+SDLC is the process followed to build high-quality software in a structured and efficient way
+
+1. planning 
+2. Defining 
+3. Designing
+4. Building 
+5. Testing
+6. deployment
+
+Waterfall Model :
+Waterfall Model is a linear and sequential SDLC model where each phase must be completed before the next one begins.
+"No going back — changes are hard once a phase is done.
+
+V Shape Model :
+V-Model (Validation and Verification Model) is an extension of the Waterfall model
+where testing is planned parallel to development.
+
+Spiral Model : 
+Spiral Model combines iterative development with risk analysis at every phase.
+Best used when:
+Project is large, complex, and risky.
+
+Agile Model :
+Agile Model builds software in small, quick cycles with continuous feedback and improvements.
+
+Fast, frequent updates
+
+Welcomes changes anytime
+
+Involves customer feedback regularly
+
+✅ Used when:
+Project needs are unclear or likely to change.
+
+
+
+
+
+
+Q. Inheritance 
+
+Q. Interface & Polymorphisms
+  Contract of Methods that a class must Follow ,without giving their implementation
+💡 Example: Think of it like a rulebook—you must follow it, but how you do it is up to you.
+
+  Polymorphism means one function or object behaving differently in different situations."
+
+💡 Example: A function named draw() can work differently for a circle, square, or triangle.
+
+Q. CI/CD 
+ CI/CD automates code building, testing, and deployment to deliver software faster and more reliably
+
+ Automatically tests and merges code changes to a shared repository.
+ Automatically delivers or deploys tested code to production or staging.
+
+✅ Goal:
+Faster updates, fewer bugs, smooth deployment.
+
+Q. preorder,postorder,inorder
+
+
+Q. ) B B+ and AVL Tree
+  
+  B : Balanced multi way searched tree 
+      A nodes have more than 2 childrens 
+      it maintains its balance by ensuring that all the level 
+      of leafe nodes are at the same level making searching,insertion,deletion more efficient.
+  
+  B+ : Its a varient of B tree only All the data pointers are strored at the leaf Nodes
+       for faster serching and indexing.
+  
+  AVL Tree : A self balance binary search tree always maintain -1,0,1 height of 
+             left and right subtree.
