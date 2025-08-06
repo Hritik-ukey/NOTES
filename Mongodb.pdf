@@ -316,7 +316,7 @@ properties:{
               }
             }
 });
------------------------------------
+----------------------------------------
 
 CONNECT DATABASE WITH BACKEND...
 
@@ -336,14 +336,14 @@ Npm i --save-dev nodemon
 Type module
 Script :
 Start: nodemon index. Js
-Make index. Js
+Make server. Js
 
 . env
 PORT = 8000
 Mongo_URL = "mongodb://localhost:27017/dbconnect"
 
 
-Index.js
+server.js
 
 import express from 'express';
 import mongoose from 'mongoose';    
@@ -442,6 +442,90 @@ npm i axios
 
 
 App.jsx
+npm i axios
+
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+const App = () => {
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        axios.get('http://localhost:8000/data')
+            .then(res => {
+                console.log(res.data);
+                setProducts(res.data.products);
+            })
+            .catch(error => {
+                console.error("There was an error fetching the products!", error);
+            });
+    }, []);
+
+    return (
+        <div>{products && products.length > 0 ? (
+            products.map((ele,ind) => <p key={ind}>{ele}</p>)
+        ):(<p>Loading...</p>)}</div>
+    );
+};
+
+export default App;
+----------------------------------------------------------------------
+FRONTEND BAckend Database
+
+BACKEND:
+
+import express from 'express';
+import mongoose from 'mongoose';    
+import dotenv from 'dotenv';
+import cors from 'cors';
+
+dotenv.config();
+const app = express();
+const PORT = process.env.PORT || 8000;  
+
+const Mongo_URL = process.env.Mongo_URL || "mongodb://localhost:27017/dbdatabases";
+
+app.use(cors());
+
+mongoose.connect(Mongo_URL).then(() => {
+    console.log(`Connected to MongoDB`);
+}).catch((error) => console.log(error));
+
+const userSchema = new mongoose.Schema({
+    name: String, 
+    age: Number, 
+}); 
+
+const UserModel = mongoose.model("users", userSchema); 
+
+app.get("/getUsers", async (req, res) => {
+    const userData = await UserModel.find();
+    res.json(userData);
+});
+
+app.get("/", async (req, res) => {
+    const user = new UserModel({ name: "Hritik", age: 23 });
+    await user.save();
+    res.send("Hello From Backend...");
+}); 
+
+app.get("/data", async (req, res) => {
+    const products = await UserModel.find();
+    if (products && products.length > 0) {
+        res.json({ products: products.map(u => u.name) });
+    } else {
+        res.json({
+            products: ["Product 1", "Product 2", "Product 3", "Product 4", "Product 5"],
+        });
+    }
+});
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
+
+
+FRONTEND:
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
