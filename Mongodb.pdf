@@ -318,3 +318,152 @@ properties:{
 });
 -----------------------------------
 
+CONNECT DATABASE WITH BACKEND...
+
+Cmd 
+mongod
+Mongodb compass me jao
+Add new connection
+
+Create database -> dbcollection
+Collection name -> Users
+
+Npm in it -y
+Express
+Mongoose
+dotenv
+Npm i --save-dev nodemon
+Type module
+Script :
+Start: nodemon index. Js
+Make index. Js
+
+. env
+PORT = 8000
+Mongo_URL = "mongodb://localhost:27017/dbconnect"
+
+
+Index.js
+
+import express from 'express';
+import mongoose from 'mongoose';    
+import dotenv from 'dotenv';
+
+dotenv.config();
+const app = express();
+const PORT = process.env.PORT || 8000;  
+
+const Mongo_URL = process.env.Mongo_URL || "mongodb://localhost:27017/database";
+
+mongoose.connect(Mongo_URL).then(() => {
+    console.log(`Connected to MongoDB`);
+}).catch((error) => console.log(error));
+
+Npm start
+
+
+Compass
+Add data
+Insrt docu
+name , roll
+
+
+Index. Js
+
+const userSchema = new mongoose.Schema({
+    name: String, 
+    age: Number, 
+}); 
+
+const UserModel = mongoose.model("users", userSchema); 
+
+app.get("/getUsers", async (req, res) => {
+    const userData = await UserModel.find();
+    res.json(userData);
+});
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
+
+Go browser 
+localhost:8000/getUsers
+
+Again insert data refres browser the see the data
+
+-----------------------------------------------------------
+FRONTEND TO BACKEND CONNECTION 
+
+BACKEND : 
+package.json
+
+
+npm i express cors -> dependencies
+npm i nodemon -> script : "start": "nodemon index.js"
+"type":"module"
+
+
+
+
+index.js:
+
+import express from 'express';
+import cors from 'cors';        
+
+const app = express();
+
+app.use(cors());
+
+app.get('/', (req, res) => {
+  res.send('Hello from backend!'); // Basic route to test server
+});
+
+app.get('/data', (req, res) => {
+  res.json({
+    products: ["Product 1", "Product 2", "Product 3", "Product 4"],
+  }); // Example API route
+});
+
+const PORT = 8000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
+FRONTEND 
+
+
+dependencies: 
+
+"start":"vite"
+
+npm i axios
+
+"type":"module"
+
+
+App.jsx
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+const App = () => {
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        axios.get('http://localhost:8000/data')
+            .then(res => {
+                console.log(res.data);
+                setProducts(res.data.products);
+            })
+            .catch(error => {
+                console.error("There was an error fetching the products!", error);
+            });
+    }, []);
+
+    return (
+        <div>{products && products.length > 0 ? (
+            products.map((ele,ind) => <p key={ind}>{ele}</p>)
+        ):(<p>Loading...</p>)}</div>
+    );
+};
+
+export default App;

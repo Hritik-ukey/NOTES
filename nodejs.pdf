@@ -1,6 +1,12 @@
 Javascript se backend banaya jata hai
+
 Yes, Express is a web application framework for Node.js.
+
 No, Node.js is not a framework  It is a JavaScript runtime environment that allows you to run 
 JavaScript code outside of a web browser, primarily on the server-side.
+
 React is a JavaScript library, not a framework. While it's often used in ways that resemble a framework, 
 it focuses on building user interfaces and leaves the rest of the application's architecture to the developer.
+
+
+
