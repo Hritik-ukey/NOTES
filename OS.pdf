@@ -4,5 +4,61 @@ hardware and software resources, acting as an intermediary between the user and 
 
 
 ) Sheduling Algorithms
+
+It's how the OS decides which process to run next on the CPU.
+
+| Algorithm                     | Preemptive | Description                                          | Example Use Case                      |
+| ----------------------------- | ---------- | ---------------------------------------------------  | ------------------------------------- |
+| FCFS (First Come First Serve) | ❌ No       | Processes executed in the order they arrive         | Print Queue                           |
+| SJF (Shortest Job First)      | ❌ / ✅     | Run process with shortest burst time first          | Batch Jobs                            |
+| Round Robin (RR)              | ✅ Yes       | Each process gets fixed time slot (time quantum)    | Time-sharing systems (e.g. OS shells) |
+| Priority Scheduling           | ❌ / ✅     | Processes with highest priority are scheduled first  | Real-time systems                     |
+| Multilevel Queue              | ✅ Yes      | Different queues for different types of processes    | OS processes vs. user processes       |
+
+
+
 ) Thread Vs process 
+
+
+| Feature       | Process                                  | Thread                                  |
+| ------------- | ---------------------------------------- | --------------------------------------- |
+| Definition    | Independent program in execution         | Smallest unit of execution in a process |
+| Memory        | Has its own memory space                 | Shares memory with other threads        |
+| Overhead      | High (context switching is costly)       | Low (faster context switching)          |
+| Communication | Inter-process Communication (IPC) needed | Shared memory (easier & faster)         |
+| Crash Effect  | One process crash won’t affect others    | Thread crash can affect other threads   |
+
+
+
+
 ) How can you Achieve multithreading 
+
+Multithreading is achieved by dividing a program into multiple independent tasks (threads) that can be executed concurrently.
+This allows for faster execution of tasks, especially those that are I/O bound or can be parallelized.
+Multithreading can be implemented in different ways depending on the programming language and the specific requirements of the application, 
+but generally involves creating threads, managing their execution, and ensuring proper synchronization to avoid issues like race conditions. 
+
+
+
+ What is a Semaphore ?
+A semaphore is a variable (or abstract data type) used to control access to a shared resource in a concurrent system (like multi-threading).
+
+📦 Think of it as:
+A gatekeeper that controls how many threads can access a resource.
+
+What is Binary Semaphore ? 
+A binary semaphore is a synchronization primitive used in computer science to 
+control access to shared resources between multiple processes or threads.
+
+
+Paging and Segmentation.
+
+✅ Paging
+👉 Memory is divided into fixed-size pages to avoid external fragmentation.
+
+✅ Segmentation
+👉 Memory is divided into variable-size segments based on logical divisions like code, stack, data, etc.
+
+🧠 Bonus: One-line Difference
+📌 Paging is based on size (fixed blocks), while segmentation is based on meaning (logical parts of a program).
+

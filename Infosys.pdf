@@ -1,39 +1,53 @@
-OS : 
-) Sheduling Algorithms
-) Thread Vs process 
-) How can you Achieve multithreading 
-) semaphores & Binary Semaphores 
-) Paging & Segmentation
-) 
 
-
-OOPS : 
-      Constructor & Destructor
-      Abstraction and Encapsulation
-
-
-
-Project Based questions 
-
-Q. Exception Handling
-Q. How to connect database while creting API 
-Q. How do you test API
 Q. What is Swagger
-Q. What is dependency injection
+Swagger is a set of open-source tools and specifications used for designing, building, documenting, and consuming RESTful APIs. 
+It provides a standardized way to describe the structure of an API, allowing developers to easily understand and interact with it. 
+Essentially, Swagger helps teams create interactive, machine and human-readable API documentation. 
 
 
 React based 
+
 1. What is lifecycle methods
+Each component in React has a lifecycle which you can monitor and manipulate during its three main phases.
+
+The three phases are: Mounting, Updating, and Unmounting.
+
+Mounting
+Mounting means putting elements into the DOM.
+
+Updating
+The next phase in the lifecycle is when a component is updated.
+
+A component is updated whenever there is a change in the component's state or props.
+
+Unmounting
+The next phase in the lifecycle is when a component is removed from the DOM, or unmounting as React likes to call it.
+
+React has only one built-in method that gets called when a component is unmounted
+
+
 2. Different types of react hooks
+   usestate,usememo,useEffect
+
 3. useReducer hooks
+The useReducer hook in React is used for managing complex state logic within a component.
+
 4. Context API 
+Context API in React is used to share data across the components without passing the props manually through every level. 
+It allows to create global state of data providing global access to all the components.
 
 DBMS : 
 Difference bwt data and information
-ACID properties
-What is tranisictions
-joins and types of joins
+Data is raw, unorganized facts, while information is data that has been processed, 
+organized, and given context to become meaningful.
+
+
+
 oral on self join
+Self joins are used to compare or combine data within the same table,
+it creates a virtual table and establishing relationships between the original and virtual tables
+
+Age Marrige Example 
 
 SQL :
 DML 
@@ -102,20 +116,24 @@ SDLC is the process followed to build high-quality software in a structured and 
 5. Testing
 6. deployment
 
-Waterfall Model :
+Waterfall Model : Oldest, Step-by-Step
 Waterfall Model is a linear and sequential SDLC model where each phase must be completed before the next one begins.
 "No going back — changes are hard once a phase is done.
 
-V Shape Model :
+V Shape Model :  Waterfall + Testing at Each Step
 V-Model (Validation and Verification Model) is an extension of the Waterfall model
 where testing is planned parallel to development.
 
-Spiral Model : 
+
+Iterative Model – Build, Improve, Repeat
+Start with a basic version, then improve it in loops (iterations).
+
+Spiral Model :  Risk-Oriented + Iterations
 Spiral Model combines iterative development with risk analysis at every phase.
 Best used when:
 Project is large, complex, and risky.
 
-Agile Model :
+Agile Model : Fast, Flexible, Team-Driven
 Agile Model builds software in small, quick cycles with continuous feedback and improvements.
 
 Fast, frequent updates
