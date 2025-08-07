@@ -1,0 +1,52 @@
+ What is SDLC (Software Development Life Cycle)?
+👉 SDLC is the step-by-step process to build software — like a recipe to make a dish, but for apps/websites/software.
+
+Phases:
+
+Requirement Gathering -> Planning -> Design -> Development -> Testing -> Deployment –> Maintenance. 
+
+📊 SDLC Models in Simple Terms:
+
+1. Waterfall Model – Oldest, Step-by-Step
+💡 Simple Idea:
+You complete one phase fully, then move to the next — like building a house (you can’t fix the foundation after the roof).
+
+❌ Problem:
+If something goes wrong at the end, you can’t go back easily.
+
+2. V-Model (Verification & Validation) – Waterfall + Testing at Each Step
+💡 Simple Idea:
+For every development phase, there’s a matching testing phase – side-by-side.
+
+
+3. Iterative Model – Build, Improve, Repeat
+💡 Simple Idea:
+Start with a basic version, then improve it in loops (iterations).
+
+
+4. Spiral Model – Risk-Oriented + Iterations
+💡 Simple Idea:
+Build the product in loops (like a spiral). Each loop involves planning, building, testing, checking risks.
+
+
+5. Agile Model – Fast, Flexible, Team-Driven
+💡 Simple Idea:
+Build the product in small parts (called sprints). Get feedback quickly, adapt fast, work in teams.
+
+
+🟢 Used now?
+Yes – ✅ Most tech companies use this 🔥
+
+✅ Summary Table
+Model	         Used Today?	                        Best For	                          Why/Why Not
+Waterfall	        ❌ No	                         Very small, simple projects	         Too rigid
+Iterative	       ⚠️ Sometimes	                      Improving existing systems	      Lacks flexibility
+V-Model	           ❌ No	                             Hardware/software combos	         Limited adaptability
+Spiral	           ⚠️ Sometimes	                      Risk-heavy software	              Complex but useful in some cases
+Agile	           ✅ Yes	                         Almost all modern tech	             Fast, flexible, team-driven
+
+🏆 Best Model Used Today?
+✅ Agile is the best and most used model.
+🔹 Used by: Google, Amazon, Meta, Microsoft, startups, etc.
+🔹 Helps in: Fast updates, customer feedback, team collaboration
+🔹 Tools used: Jira, Trello, Scrum, Kanban
