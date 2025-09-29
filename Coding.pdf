@@ -1,4 +1,4 @@
-1) Swap Two numbers without temp
+1) Swap Two numbers without using third variable
 
    a = a+b;
    b = a-b;

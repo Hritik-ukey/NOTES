@@ -328,7 +328,7 @@ Add new connection
 Create database -> dbcollection
 Collection name -> Users
 
-Npm in it -y
+Npm init -y
 Express
 Mongoose
 dotenv

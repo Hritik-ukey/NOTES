@@ -1,0 +1,41 @@
+Q. SDLC models phases
+SDLC is the process followed to build high-quality software in a structured and efficient way
+
+1. planning 
+2. Defining 
+3. Designing
+4. Building 
+5. Testing
+6. deployment
+
+Waterfall Model : Oldest, Step-by-Step
+Waterfall Model is a linear and sequential SDLC model.
+"No going back — changes are hard once a phase is done.
+
+V Shape Model :  Waterfall + Testing at Each Step
+V-Model (Validation and Verification Model) is an extension of the Waterfall model
+where testing is planned parallel to development.
+
+
+Iterative Model – Build, Improve, Repeat
+Start with a basic version, then improve it in loops (iterations).
+
+Spiral Model :  Risk-Oriented + Iterations
+Spiral Model combines iterative development with risk analysis at every phase.
+Best used when:
+Project is large, complex, and risky.
+
+Agile Model : Fast, Flexible, Team-Driven
+Agile Model builds software in small, quick cycles with continuous feedback and improvements.
+
+Fast, frequent updates
+
+Welcomes changes anytime
+
+Involves customer feedback regularly
+
+✅ Used when:
+Project needs are unclear or likely to change.
+
+
+

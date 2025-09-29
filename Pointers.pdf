@@ -7,7 +7,7 @@ int *p = &a;
 * -> Dereference Operator
 
 Use Cases : DMA(malloc/new),Fun arg,DS (LL,Graph,Tree),Efficiency(Avoids coping large structures)
-
+            Dynamic memory allocaton
 Types : 
        1. NULL -> int* ptr = NULL;
        2. Daingling -> Pointing to deleted memo
@@ -18,7 +18,7 @@ Types :
       int *p = arr;
       cout<<*(p+1) // 20
 
-  Pass By Refference : addapt changes
+  Pass By Refference : adapt changes
       
          int a = 10;
          update(&a);

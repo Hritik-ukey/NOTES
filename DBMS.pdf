@@ -103,3 +103,181 @@ Used to skip a specific number of rows before starting to return results.
   
   AVL Tree : A self balance binary search tree always maintain -1,0,1 height of 
              left and right subtree.
+
+
+
+ONE SHORT :
+
+🔹 Basics
+
+DBMS: Software to store & manage data.
+Example: MySQL, Oracle, MongoDB.
+
+Database: Organized collection of data.
+Example: Student records table in college system.
+
+Data Models: Way to represent data.
+
+Hierarchical → tree (like folders in computer).
+
+Network → graph.
+
+Relational → tables (most used).
+
+🔹 Keys in DBMS
+
+Primary Key: Unique & not null.
+Example: Roll number in student table.
+
+Candidate Key: All possible unique identifiers.
+Example: Roll number, Aadhaar number (any could be primary).
+
+Super Key: Primary key + extra attributes.
+Example: {RollNo, Name} when RollNo alone is enough.
+
+Foreign Key: Key that links two tables.
+Example: DeptID in student table referring to Dept table.
+
+Composite Key: Combination of attributes to make it unique.
+Example: {CourseID, StudentID} in Enrollment table.
+
+🔹 Normalization
+
+Normalization: Process to reduce redundancy & improve consistency.
+Example: Instead of writing DeptName in every student row, keep Dept table separately.
+
+Forms:
+
+1NF: Atomic values only (no multiple values in one cell).
+
+2NF: 1NF + no partial dependency.
+
+3NF: 2NF + no transitive dependency.
+
+BCNF: Stronger form of 3NF.
+
+🔹 Transactions & Properties
+
+Transaction: Sequence of DB operations executed as a single unit.
+Example: ATM withdraw = check balance → deduct → dispense cash.
+
+ACID Properties:
+
+Atomicity: All or nothing.
+
+Consistency: Database must stay valid.
+
+Isolation: No interference between transactions.
+
+Durability: Once done, stays even after crash.
+
+🔹 Concurrency Control
+
+Problem: Multiple transactions accessing same data → conflicts.
+Example: Two ATMs withdrawing from same account at same time.
+
+Locks:
+
+Shared lock → multiple reads allowed.
+
+Exclusive lock → only one write allowed.
+
+Deadlock: Two transactions waiting forever.
+Example: Transaction A waiting for B, and B waiting for A.
+
+🔹 SQL Essentials
+
+DDL (Data Definition Language): Create/alter/drop structure.
+Example: CREATE TABLE Students (...);
+
+DML (Data Manipulation Language): Insert/update/delete data.
+Example: INSERT INTO Students VALUES(...);
+
+DCL (Data Control Language): Grant/revoke permissions.
+Example: GRANT SELECT ON Students TO user1;
+
+TCL (Transaction Control Language): Commit/rollback/savepoint.
+Example: COMMIT; ROLLBACK;
+
+🔹 Joins
+
+INNER JOIN: Matching rows only.
+Example: Students with matching DeptID.
+
+LEFT JOIN: All from left + matching right.
+
+RIGHT JOIN: All from right + matching left.
+
+FULL JOIN: All records from both.
+
+🔹 Indexing
+
+Index: Speed up search on columns.
+Example: Index on RollNo makes search faster.
+
+Clustered Index: Alters physical table order.
+
+Non-Clustered Index: Separate structure pointing to data.
+
+🔹 Stored Procedures & Triggers
+
+Stored Procedure: Saved SQL queries/functions.
+Example: A procedure for monthly salary calculation.
+
+Trigger: Auto executes on event.
+Example: Auto-update stock when a new sale is recorded.
+
+🔹 File Organization
+
+Heap: Unordered storage.
+
+Sequential: Sorted order.
+
+Hashing: Fast search using hash function.
+
+🔹 ER Model
+
+Entity: Object in real world.
+Example: Student.
+
+Attributes: Properties.
+Example: Name, RollNo.
+
+Relationship: Link between entities.
+Example: Student → Enrolls → Course.
+
+🔹 Relational Algebra (Interview Favorite)
+
+Select (σ): Filter rows.
+
+Project (π): Pick columns.
+
+Join (⨝): Combine tables.
+
+Union (∪): Add rows from two tables.
+
+Set Difference (-): Rows in one not in other.
+
+Cartesian Product (×): Combine all rows from two tables.
+
+✅ With this, we’ve covered:
+
+Basics + Keys
+
+Normalization
+
+Transactions (ACID)
+
+Concurrency control
+
+SQL + Joins + Indexing
+
+Procedures + Triggers
+
+File organization
+
+ER model + Relational Algebra
+
+That’s 90–95% of DBMS interview coverage 🚀
+
+👉 Do you want me to now make a combined crash-course (OS + CN + DBMS) so you have one single sheet for revision before interviews?

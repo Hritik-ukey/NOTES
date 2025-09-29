@@ -1,0 +1,165 @@
+🔹 Basics of Computer Networks
+
+Computer Network: Collection of devices connected to share data/resources.
+Example: Office computers sharing one printer via LAN.
+
+Types of Networks:
+
+LAN (Local Area Network): Small area like home/office Wi-Fi.
+
+MAN (Metropolitan Area Network): City-wide network like cable TV internet.
+
+WAN (Wide Area Network): Covers countries/continents → Internet.
+
+🔹 IP Addressing
+
+IP Address: Unique address of each device in a network.
+Example: Phone gets 192.168.0.5 when connected to Wi-Fi.
+
+IPv4 vs IPv6:
+
+IPv4 → 32-bit, written like 192.168.1.1, limited ~4 billion addresses.
+
+IPv6 → 128-bit, written like 2001:db8::1, virtually unlimited.
+
+MAC Address: Hardware ID of device → permanent.
+Example: Laptop Wi-Fi card → 00:1A:2B:3C:4D:5E.
+
+NAT (Network Address Translation): Converts private IPs → public IP.
+Example: Home router hides all devices under one public IP.
+
+DHCP: Auto-assigns IPs to devices.
+Example: Your phone gets IP automatically when you join Wi-Fi.
+
+🔹 DNS & Services
+
+DNS (Domain Name System): Converts names → IP addresses.
+Example: google.com → 142.250.182.14.
+
+HTTP vs HTTPS: Protocol for web communication, HTTPS = secure with SSL/TLS.
+Example: Browsing Facebook securely = HTTPS.
+
+FTP (File Transfer Protocol): For file sharing.
+Example: Uploading website files to hosting server.
+
+SMTP/IMAP/POP3: For sending/receiving emails.
+Example: Gmail uses SMTP to send, IMAP/POP3 to fetch emails.
+
+🔹 OSI Model (7 Layers)
+
+Think of OSI like sending a letter via postal system.
+
+Physical Layer: Hardware, cables, signals.
+Example: Ethernet cable, Wi-Fi signals.
+
+Data Link Layer: MAC addressing, error detection.
+Example: Switch forwards frame based on MAC.
+
+Network Layer: Logical addressing, routing.
+Example: Router sends packet to correct destination via IP.
+
+Transport Layer: Reliability, segmentation.
+Example: TCP ensures message delivery, UDP just sends quickly.
+
+Session Layer: Manages connections (start/close).
+Example: Online banking login session.
+
+Presentation Layer: Data translation, encryption.
+Example: SSL/TLS encryption for HTTPS.
+
+Application Layer: User-facing apps.
+Example: Web browser, email client.
+
+🔹 TCP/IP Model (Practical Internet Model)
+
+Simplified 4 layers (real-world version of OSI).
+
+Link Layer: Hardware, MAC.
+
+Internet Layer: IP addressing, routing.
+
+Transport Layer: TCP/UDP communication.
+
+Application Layer: User applications like HTTP, DNS, FTP.
+
+Example: Sending a WhatsApp message uses all layers — from app down to Wi-Fi signals.
+
+🔹 TCP vs UDP
+
+TCP (Transmission Control Protocol): Reliable, connection-oriented, error-checked.
+Example: WhatsApp text, email, web browsing (must not lose data).
+
+UDP (User Datagram Protocol): Fast, no reliability, connectionless.
+Example: Online gaming, video streaming, Zoom call (speed matters more).
+
+TCP 3-Way Handshake:
+
+SYN → SYN-ACK → ACK.
+Example: Like saying “Hello” → “Hello back” → “Okay let’s talk.”
+
+🔹 Switching & Routing
+
+Hub: Broadcasts data to all devices (wastes bandwidth).
+
+Switch: Sends data only to intended device using MAC.
+
+Router: Connects multiple networks, uses IP for routing.
+Example: Home router connects LAN to Internet.
+
+🔹 Data Transmission Concepts
+
+Packet Switching: Data broken into packets sent independently.
+Example: Internet browsing.
+
+Circuit Switching: Dedicated path for full session.
+Example: Traditional phone call.
+
+Bandwidth: Max capacity of link (100 Mbps internet).
+
+Latency: Delay in data transfer (video call lag).
+
+🔹 Network Security
+
+Firewall: Filters network traffic for safety.
+Example: Blocks unauthorized access.
+
+Proxy Server: Acts as middleman, can hide IP.
+Example: VPN hides your location.
+
+DoS/DDoS Attack: Flooding server with fake traffic.
+Example: Website crashes due to attack.
+
+DNS Spoofing: Fake DNS redirects user to wrong site.
+Example: Fake bank site steals passwords.
+
+🔹 Classic Problems & Tools
+
+Ping: Command to test connectivity.
+Example: ping google.com checks if reachable.
+
+Traceroute: Shows path packets take.
+Example: Debugging slow connection.
+
+Producer-Consumer (in Networks): Buffers in routers store packets before sending.
+
+✅ With this, we’ve covered:
+
+Basics & types of networks
+
+IP addressing, NAT, DHCP
+
+DNS, protocols
+
+OSI & TCP/IP in detail
+
+TCP/UDP + 3-way handshake
+
+Switching, routing
+
+Transmission methods (packet vs circuit)
+
+Security & attacks
+
+Tools (ping, traceroute)
+
+That’s 95% of CN interview syllabus. 🚀

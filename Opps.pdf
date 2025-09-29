@@ -15,7 +15,7 @@ This creates a Person with a name and age.
 
 
 Enum
-An enum is used to define a set of named constant values. It's great for representing a fixed list of options.
+An enum is a set of named constant values. It's great for representing a fixed list of options.
 enum Color { RED, GREEN, BLUE };
 
 Color favorite = GREEN;

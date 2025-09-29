@@ -1,0 +1,235 @@
+🔹 Basics
+
+Data Structure: Way to organize data.
+Example: Cupboard = array of shelves.
+
+Algorithm: Step-by-step method to solve a problem.
+Example: Recipe for cooking noodles.
+
+Time Complexity: How fast code grows with input.
+Example: Linear search = O(n), Binary search = O(log n).
+
+Space Complexity: memory used.
+Example: Storing DP table uses O(n) space.
+
+Linear -> Array , Linked List , Stack , Queue
+Non Linear -> Graph , Tree , Heap , Tries 
+
+🔹 Arrays
+
+Array: Fixed-size, contiguous memory.
+Example: Seats in a cinema row.
+
+Common Problems:
+
+Reverse array
+
+Rotate array
+
+Find duplicates
+
+Kadane’s Algorithm (max subarray sum)
+
+Two-pointer technique (pair sum, sliding window)
+
+🔹 Strings
+
+String: Array of characters.
+
+Common Problems:
+
+Palindrome check
+
+Substring search (KMP, Rabin-Karp)
+
+Anagram check
+
+Longest Common Subsequence (DP)
+
+Longest Palindromic Substring
+
+🔹 Linked List
+
+Singly Linked List: Node → data + next pointer.
+
+Doubly Linked List: Node → data + next + prev.
+
+Circular Linked List: Last node points to first.
+
+Common Problems:
+
+Reverse linked list
+
+Detect cycle (Floyd’s algorithm)
+
+Merge two sorted lists
+
+Find middle element
+
+🔹 Stack
+
+Stack: LIFO (Last In First Out).
+Example: Plates stack in cafeteria.
+
+Applications: Expression evaluation, undo operation.
+
+Problems: Balanced parentheses, Next Greater Element.
+
+🔹 Queue
+
+Queue: FIFO (First In First Out).
+Example: People in a ticket queue.
+
+Variants:
+
+Circular Queue
+
+Deque (double-ended queue)
+
+Priority Queue (min-heap/max-heap)
+
+Problems: Sliding window maximum, Rotten oranges.
+
+🔹 Hashing
+
+Hash Table: Stores key-value pairs using hash function.
+Example: Dictionary word → meaning.
+
+Problems:
+
+Two-sum problem
+
+Find duplicates
+
+Count frequencies
+
+🔹 Trees
+
+Binary Tree: Each node has ≤2 children.
+
+Binary Search Tree (BST): Left < Root < Right.
+
+Traversal: Inorder, Preorder, Postorder, Level-order.
+
+Problems:
+
+Height of tree
+
+Lowest Common Ancestor (LCA)
+
+Diameter of tree
+
+Serialize/deserialize tree
+
+Heap (Binary Heap): Complete tree used for priority queues.
+Example: Max-heap root is always largest.
+
+Trie: Tree for strings/prefix search.
+Example: Auto-complete in search bar.
+
+🔹 Graphs
+
+Graph: Nodes (vertices) + connections (edges).
+
+Types: Directed, Undirected, Weighted, Unweighted.
+
+Representations: Adjacency Matrix, Adjacency List.
+
+Traversals: BFS (level order), DFS (depth search).
+
+Algorithms:
+
+Dijkstra’s (shortest path)
+
+Bellman-Ford (shortest path with negative weights)
+
+Floyd-Warshall (all pairs shortest path)
+
+Kruskal’s & Prim’s (Minimum Spanning Tree)
+
+Topological Sort (ordering in DAG)
+
+Union-Find/DSU (cycle detection, networks)
+
+🔹 Recursion & Backtracking
+
+Recursion: Function calling itself.
+Example: Factorial(n) = n × Factorial(n-1).
+
+Backtracking: Try → explore → undo if wrong.
+Example: Sudoku solver, N-Queens problem.
+
+🔹 Dynamic Programming (DP)
+
+Idea: Store results of subproblems to avoid recomputation.
+Example: Fibonacci with memoization.
+
+Classic Problems:
+
+Fibonacci
+
+Longest Common Subsequence
+
+Knapsack problem
+
+Coin Change
+
+Matrix Chain Multiplication
+
+DP on grids (unique paths, min path sum)
+
+🔹 Searching & Sorting
+
+Searching:
+
+Linear Search → O(n).
+
+Binary Search → O(log n).
+
+Sorting Algorithms:
+
+Bubble Sort → O(n²).
+
+Selection Sort → O(n²).
+
+Insertion Sort → O(n²).
+
+Merge Sort → O(n log n).
+
+Quick Sort → O(n log n) average, O(n²) worst.
+
+Heap Sort → O(n log n).
+
+Counting/Radix/Bucket → O(n) (non-comparison based).
+
+🔹 Greedy Algorithms
+
+Greedy Approach: Take best choice at each step.
+Example: Minimum coins for change (Indian currency).
+
+Algorithms:
+
+Activity Selection
+
+Huffman Coding
+
+Kruskal’s MST
+
+Prim’s MST
+
+🔹 Advanced Topics
+
+Bit Manipulation:
+
+Check odd/even → n & 1.
+
+Swap without temp → XOR.
+
+Count set bits.
+
+Segment Tree / Fenwick Tree (BIT): Range queries (sum/min/max).
+Example: Find sum of subarray fast.
+
+Disjoint Set Union (DSU): For connectivity/cycle detection.
+Example: Social network friend groups.
+

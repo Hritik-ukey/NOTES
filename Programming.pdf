@@ -146,8 +146,8 @@ int fib(int n) {
     }
     return b;
 }
-  🕒 Time: O(n)
-🧠 Space: O(1)
+  🕒 Time:  O(n)
+  🧠 Space: O(1)
 ----------------------------------------------------------------------
 Reverse Number
 
@@ -177,8 +177,8 @@ Output: Yes
 Explanation: 153 is an Armstrong number, 1*1*1 + 5*5*5 + 3*3*3 = 153
 
 - 1 and 9 → log10(num) is between 0 and 1
-- 10 and 99 → log10(num) is between 1 and 2
-- 100 and 999 → log10(num) will be between 2 and 3
+- 10 and 99 → log10(num)+1 is between 1 and 2
+- 100 and 999 → log10(num)+2 will be between 2 and 3
 
 
 
@@ -223,6 +223,39 @@ Next Permutation :
 
 TC : O(n*n!)  next_permutation = O(N) looping n!
 SC : O(1)
+
+OR O(N) : O(1)
+
+ int ind = -1; // break point
+    for (int i = n - 2; i >= 0; i--) {
+        if (A[i] < A[i + 1]) {
+            // index i is the break point
+            ind = i;
+            break;
+        }
+    }
+
+    // If break point does not exist:
+    if (ind == -1) {
+        // reverse the whole array:
+        reverse(A.begin(), A.end());
+        return A;
+    }
+
+    // Step 2: Find the next greater element
+    //         and swap it with arr[ind]:
+
+    for (int i = n - 1; i > ind; i--) {
+        if (A[i] > A[ind]) {
+            swap(A[i], A[ind]);
+            break;
+        }
+    }
+
+    // Step 3: reverse the right half:
+    reverse(A.begin() + ind + 1, A.end());
+
+    return A;
 ---------------------------------------------------------------------
 Remove Duplicates O(N LOG N) through sets
 
@@ -465,6 +498,7 @@ pair<int, int> findMinMax(vector<int>& arr) {
 
     pair<int,int> result = findmaxi(arr,n);
     cout<<result.first<<" "<<result.second;
+
 ⏱ Time Complexity: O(n)
 🧠 Space Complexity: O(1)
 --------------------------------------------------------------------------------
@@ -1385,7 +1419,7 @@ string reverseString(string s){
             result += words[i];
             if(i<words.size()-1) result+=" ";
         }
-        return result;
+        return result(1);
     }
 
     TC : O(N)
