@@ -993,3 +993,67 @@ Inline functions : Way to optimize programming performence
 
 Polymorphisms :  it occurs when we have many classes that are related to each other by inheritance.
 
+
+
+Friend Class & Friend Function :
+
+It provide accesibility of private & protected members of another class.
+
+class A {
+    private:
+    int a = 5;
+
+    friend class B;
+}
+
+class B {
+    public :
+   void show(A obj){
+    cout<<obj.a;
+   }
+}
+
+reverse also possible but you'll need to define it like here...
+
+for function 
+
+void show(Box a){
+    cout<<a.length();
+}
+
+class Box{
+    int length = 10;
+
+    friend void show(Box);
+}
+
+CALL by Reference And CALL by Value : 
+
+call by value : copy of varible sent to the function not the actaul value.
+
+
+    void inc(int num) {
+        num = num + 1; // Changes the copy, not the original
+    }
+
+    int main() {
+        int x = 10;
+        inc(x);
+        // x will still be 10 here
+        return 0;
+    }
+
+
+call by reference : Reference or memeory address of that variable is passing it may occur changes 
+
+
+    void inc(int &num) { // & indicates pass by reference
+        num = num + 1; // Changes the original variable
+    }
+
+    int main() {
+        int x = 10;
+        inc(x);
+        // x will now be 11 here
+        return 0;
+    }

@@ -14,7 +14,7 @@ Reverse a number...
    }
 --------------------
    int n, rev = 0;
-    cin >> n;
+    cin >> n; 
     
     while (n > 0) {
         int ln = n % 10;
