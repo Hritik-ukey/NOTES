@@ -469,17 +469,48 @@ int findmaxi(int arr[],int n){
 ) Second Maximum
 
 int findmaxi(int arr[],int n){
-    int maxi = INT_MIN,second_maxi=INT_MAX;
+    int maxi = INT_MIN,second_maxi=INT_MIN;
     
     for(int i=0;i<n;i++){
-        maxi=max(arr[i],maxi);
+        if(arr[i] > maxi){
         second_maxi=maxi;
-        
-        if(arr[i]<maxi && second_maxi < maxi){
-            return second_maxi;
+        maxi = arr[i];
         }
-    }
-    return maxi;
+        else if(arr[i]>second_maxi && arr[i] != maxi){
+            second_maxi = arr[i];
+        }
+     }
+
+    return second_maxi;
+
+}
+---------------------------------------------------------------------------
+Third Maxi
+
+int findmaxi(int arr[],int n){
+    int first = INT_MIN,second=INT_MIN, third=INT_MIN;
+    
+    for(int i=0;i<n;i++){
+        int num = arr[i];
+        
+        //(num == first || se || th) continue; for skip if no. is already one of the top three.
+        if(num > first){
+        third = second;
+        second=first;
+        first = num;
+        }
+        else if(num > second){
+            third = second;
+            second = num;
+        }
+        else {
+            third = num;
+        }
+        
+     }
+
+    return third;
+
 }
 ---------------------------------------------------------------------------
 ✅ 2) Find Min and Max in an Array
