@@ -60,28 +60,32 @@ for (int i = 1; i < n; i++) {
 
     arr[j + 1] = temp;
 }
---------------------------------------------------------------------
-Quick Sort :  BEst,Avg -> N(LogN) worst -> (NlogN) Divide & Conquere
+-------------------------------------------------------------------------------------------------------
+Divide & Conquere
+Quick Sort :  BEst,Avg -> N(LogN) -> (NlogN) and for worst -> O(N2) if your pivot is largest or smallest.
 
 #include <iostream>
 using namespace std;
 
-void quickSort(int arr[], int low, int high) {
-    if (low < high) {
-        int pivot = arr[high]; // Choosing last element as pivot
-        int i = low - 1;
+void partition((vector<int> &arr,int st,int end){
+   int idx = st-1 , pivot = arr[end];
 
-        for (int j = low; j < high; j++) {
-            if (arr[j] < pivot) {
-                i++;
-                swap(arr[i], arr[j]);
-            }
-        }
-        swap(arr[i + 1], arr[high]);
-        int pi = i + 1;
+ for(int j=0;j<=end;j++){
+    if(arr[j] <= pivot){
+     idx++;
+     swap(arr[j],arr[idx]);
+    }
+  }
+    idx++;
+  swap(arr[end],arr[idx]);
+  return idx;
+}
 
-        quickSort(arr, low, pi - 1);
-        quickSort(arr, pi + 1, high);
+void quickSort(vector<int> &arr,int st,int end){
+    if(st<end){
+     int pivIdx = partition(arr,st,end);
+     quickSort(arr, st, pivIdx-1);
+     quickSort(arr, pivIdx+1, end);
     }
 }
 
