@@ -105,30 +105,32 @@ Merge Sort : best,avg,worst -> O(NlogN)
 #include <iostream>
 using namespace std;
 
-void merge(int arr[], int left, int mid, int right) {  //O(N)
-    int n1 = mid - left + 1;
-    int n2 = right - mid;
-    int leftArr[n1], rightArr[n2];
+void merge(arr,left,mid,end){
+       vector<int> temp;
 
-    for (int i = 0; i < n1; i++) leftArr[i] = arr[left + i];
-    for (int j = 0; j < n2; j++) rightArr[j] = arr[mid + 1 + j];
+      i=start,j=mid+1;
 
-    int i = 0, j = 0, k = left;
-    while (i < n1 && j < n2) {
-        if (leftArr[i] <= rightArr[j]) {
-            arr[k] = leftArr[i];
-            i++;
-        } else {
-            arr[k] = rightArr[j];
-            j++;
-        }
-        k++;
-    }
+     while(i <= mid && j <= mid){
+      if(A[i] < A[j])
+      temp.pb(A[i]);
+      i++;
+      
+      else
+      temp.pb(A[j])
+      j++;
 
-    while (i < n1) arr[k++] = leftArr[i++];
-    while (j < n2) arr[k++] = rightArr[j++];
+      //left
+      while(i<=mid)
+       temp.pb(A[i]) i++;
+
+      //right
+      while(j<=end)
+       temp.pb(A[i]) i++;  
+     }    
+
+     for(idx=0;idx<temp.size();idx++)
+      A[idx+start] = temp[idx];                      
 }
-
 void mergeSort(int arr[], int left, int right) {  LOG(N)
     if (left < right) {
         int mid = left + (right - left) / 2;
